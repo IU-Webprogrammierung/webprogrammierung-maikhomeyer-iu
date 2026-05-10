@@ -24,16 +24,16 @@
 
         <section id="home">
             <div>
-                <img src="assets/profil.jpg" height="480" width="360" alt="Porträt von Maik Homeyer">
+                <img src="assets/profil.jpg" height="480" width="360" alt="Porträt von Maik">
             </div>
             <div>
-                <h1>Hey, ich bin Maik!</h1>
+                <h1>Hey, ich bin Maik! <span aria-hidden="true">👋</span></h1>
                 <p>User Experience Designer aus Hannover. Ich schaffe digitale Erlebnisse, die wirken.</p>
                 <div>
-                    <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer">Dribbble</a>
-                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">Spotify</a>
+                    <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" aria-label="Dribbble-Profil von Maik">Dribbble</a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn-Profil von Maik">LinkedIn</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram-Profil von Maik">Instagram</a>
+                    <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" aria-label="Spotify-Profil von Maik">Spotify</a>
                 </div>
             </div>
         </section>
@@ -41,30 +41,21 @@
         <section id="projects">
             <h2>Studienprojekte</h2>
             <div>
-                <div>
-                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Urban Plant Club'">
-                    <p>
-                        Urban Plant Club
-                        <br/>
-                        <span>Mobile App Design</span>
-                    </p>
-                </div>
-                <div>
-                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'FleetBase'">
-                    <p>
-                        Fleetbase
-                        <br>
-                        <span>UI Design für Unternehmenssoftware</span>
-                    </p>
-                </div>
-                <div>
-                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Overlook Hotel'">
-                    <p>
-                        Overlook Hotel
-                        <br>
-                        <span>Responsive Webdesign</span>
-                    </p>
-                </div>
+                <button type="button" aria-label="Projektdetails zu Urban Plant Club öffnen">
+                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Urban Plant Club'" aria-hidden="true">
+                    <span class="project-title">Urban Plant Club</span>
+                    <span class="project-category">Mobile App Design</span>
+                </button>
+                <button type="button" aria-label="Projektdetails zu FleetBase öffnen">
+                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'FleetBase'" aria-hidden="true">
+                    <span class="project-title">FleetBase</span>
+                    <span class="project-category">UI Design für Unternehmenssoftware</span>
+                </button>
+                <button type="button" aria-label="Projektdetails zu Overlook Hotel öffnen">
+                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Overlook Hotel'" aria-hidden="true">
+                    <span class="project-title">Overlook Hotel</span>
+                    <span class="project-category">Responsive Webdesign</span>
+                </button>
             </div>
         </section>
 
@@ -73,7 +64,6 @@
             <div>
                 <div>
                     <h3>Beruflicher Werdegang</h3>
-                    <hr>
                     <dl>
                         <dt>seit 07 / 2019</dt>
                         <dd>
@@ -85,7 +75,6 @@
                 </div>
                 <div>
                     <h3>Ausbildung & Studium</h3>
-                    <hr>
                     <dl>
                         <dt>seit 01 / 2021</dt>
                         <dd>
@@ -101,7 +90,6 @@
                 </div>
                 <div>
                     <h3>Praktische Erfahrungen</h3>
-                    <hr>
                     <dl>
                         <dt>seit 01 / 2026</dt>
                         <dd>
@@ -122,28 +110,28 @@
                     </dl>
                 </div>
             </div>
-
         </section>
-        
-    </main>
 
-    <footer id="contact">
-        <div>
+        <section id="contact">
             <h2>Kontakt</h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
             <div>
                 <a href="mailto:maik.homeyer@iu-study.org">E-Mail schreiben</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn-Profil von Maik">LinkedIn</a>
             </div>
-        </div>
-        <div>
-            <div>
-                <span>© 2026 Maik Homeyer</span><span> • </span>
-                <a href="/impressum.html">Impressum</a>
-            </div>
-                <a href="#home">Nach oben</a>
-        </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <span>© 2026 Maik Homeyer</span>
+        <span aria-hidden="true"> • </span>
+        <a href="/impressum.html">Impressum</a>
      </footer>
+
+    <button type="button" class="back-to-top" aria-label="Zum Seitenanfang scrollen" hidden>
+        <span aria-hidden="true">↑</span>
+    </button>
     
 </body>
 </html>
