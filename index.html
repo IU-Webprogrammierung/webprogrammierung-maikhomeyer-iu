@@ -41,7 +41,7 @@
         <section id="projects">
             <h2>Studienprojekte</h2>
             <div>
-                <button type="button" aria-label="Projektdetails zu Urban Plant Club öffnen">
+                <button type="button" aria-haspopup="dialog" aria-controls="modal-urban-plant-club" aria-label="Projektdetails zu Urban Plant Club öffnen">
                     <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Urban Plant Club'" aria-hidden="true">
                     <span class="project-title">Urban Plant Club</span>
                     <span class="project-category">Mobile App Design</span>
@@ -128,6 +128,40 @@
         <span aria-hidden="true"> • </span>
         <a href="/impressum.html">Impressum</a>
      </footer>
+
+     <dialog id="modal-urban-plant-club" aria-labelledby="modal-urban-plant-club-title">
+
+        <button type="button" aria-label="Projektdetails schließen" autofocus>
+            <span aria-hidden="true">×</span>
+        </button>
+
+        <article>
+            <header>
+                <p>Mobile App Design</p>
+                <h2 id="modal-urban-plant-club-title">Urban Plant Club</h2>
+            </header>
+
+            <p>Für ein Hochschulprojekt entstand die App Urban Plant Club, die das Thema Urban Gardening aufgreift und den Austausch sowie die Gemeinschaft innerhalb einer Kommune stärkt. Der gesamte Gestaltungsprozess umfasste Recherche, Ideenfindung, Konzeption sowie die Ausarbeitung von High Fidelity Layouts und eines klickbaren Prototyps.</p>
+
+            <ul>
+                <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer">Prototyp aufrufen</a></li>
+                <li>Tools: Figma</li>
+            </ul>
+
+            <figure>
+                <img src="assets/urban-plant-club-1.jpg" alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone">
+            </figure>
+
+            <figure>
+                <img src="assets/urban-plant-club-2.jpg" alt="Startseite der Urban Plant Club App">
+            </figure>
+
+            <figure>
+                <img src="assets/urban-plant-club-3.jpg" alt="Projektsuche Urban Plant Club App">
+            </figure>
+        </article>
+
+    </dialog>
 
     <button type="button" class="back-to-top" aria-label="Zum Seitenanfang scrollen" hidden>
         <span aria-hidden="true">↑</span>
