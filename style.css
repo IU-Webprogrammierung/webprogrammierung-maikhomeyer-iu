@@ -109,3 +109,41 @@ svg {
     display: block;
     max-width: 100%;
 }
+
+.site-header {
+    width: 100%;
+    padding: 3rem;
+}
+
+.site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.125rem;
+}
+
+.site-nav__logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+}
+
+.site-nav__logo:hover {
+    color: red;
+}
+
+.site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.site-nav__link {
+    display: inline-block;
+    padding: 1rem 0;
+}
+
+.site-nav__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+}
