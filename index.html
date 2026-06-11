@@ -50,18 +50,33 @@
         <section id="projects">
             <h2>Studienprojekte</h2>
             <div>
-                <button type="button" aria-haspopup="dialog" aria-controls="modal-urban-plant-club" aria-label="Projektdetails zu Urban Plant Club öffnen">
-                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Urban Plant Club'" aria-hidden="true">
+                <button type="button"
+                        commandfor="modal-urban-plant-club"
+                        command="show-modal"
+                        aria-label="Projektdetails zu Urban Plant Club öffnen">
+                    <img src="assets/placeholder-image.svg"
+                         alt="Screenshots aus dem Projekt 'Urban Plant Club'"
+                         aria-hidden="true">
                     <span class="project-title">Urban Plant Club</span>
                     <span class="project-category">Mobile App Design</span>
                 </button>
-                <button type="button" aria-haspopup="dialog" aria-controls="modal-fleetbase" aria-label="Projektdetails zu FleetBase öffnen">
-                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'FleetBase'" aria-hidden="true">
+                <button type="button"
+                        commandfor="modal-fleetbase"
+                        command="show-modal"
+                        aria-label="Projektdetails zu FleetBase öffnen">
+                    <img src="assets/placeholder-image.svg" 
+                         alt="Screenshots aus dem Projekt 'FleetBase'"
+                         aria-hidden="true">
                     <span class="project-title">FleetBase</span>
                     <span class="project-category">UI Design für Unternehmenssoftware</span>
                 </button>
-                <button type="button" aria-haspopup="dialog" aria-controls="modal-overlook-hotel" aria-label="Projektdetails zu Overlook Hotel öffnen">
-                    <img src="assets/placeholder-image.svg" alt="Screenshots aus dem Projekt 'Overlook Hotel'" aria-hidden="true">
+                <button type="button"
+                        commandfor="modal-overlook-hotel"
+                        command="show-modal"
+                        aria-label="Projektdetails zu Overlook Hotel öffnen">
+                    <img src="assets/placeholder-image.svg" 
+                         alt="Screenshots aus dem Projekt 'Overlook Hotel'"
+                         aria-hidden="true">
                     <span class="project-title">Overlook Hotel</span>
                     <span class="project-category">Responsive Webdesign</span>
                 </button>
@@ -146,9 +161,15 @@
 
      <!-- MODAL: URBAN PLANT CLUB -->
 
-     <dialog id="modal-urban-plant-club" aria-labelledby="modal-urban-plant-club-title">
+     <dialog id="modal-urban-plant-club"
+             aria-labelledby="modal-urban-plant-club-title"
+             closedby="any">
 
-        <button type="button" aria-label="Projektdetails schließen" autofocus>
+        <button type="button"
+                commandfor="modal-urban-plant-club"
+                command="close"
+                aria-label="Projektdetails schließen"
+                autofocus>
             <span aria-hidden="true">×</span>
         </button>
 
@@ -182,9 +203,15 @@
 
     <!-- MODAL: FLEETBASE -->
 
-    <dialog id="modal-fleetbase" aria-labelledby="modal-fleetbase-title">
+    <dialog id="modal-fleetbase" 
+            aria-labelledby="modal-fleetbase-title"
+            closedby="any">
 
-        <button type="button" aria-label="Projektdetails schließen" autofocus>
+        <button type="button"
+                commandfor="modal-fleetbase"
+                command="close"
+                aria-label="Projektdetails schließen"
+                autofocus>
             <span aria-hidden="true">×</span>
         </button>
 
@@ -222,9 +249,15 @@
 
     <!-- MODAL: OVERLOOK HOTEL -->
 
-    <dialog id="modal-overlook-hotel" aria-labelledby="modal-overlook-hotel-title">
+    <dialog id="modal-overlook-hotel"
+            aria-labelledby="modal-overlook-hotel-title"
+            closedby="any">
 
-        <button type="button" aria-label="Projektdetails schließen" autofocus>
+        <button type="button"
+                commandfor="modal-overlook-hotel"
+                command="close"
+                aria-label="Projektdetails schließen"
+                autofocus>
             <span aria-hidden="true">×</span>
         </button>
 
