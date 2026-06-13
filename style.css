@@ -71,6 +71,18 @@
 :root {
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'Satoshi', system-ui, sans-serif;
+    --header-height: 4rem;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 body {
@@ -78,6 +90,10 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: var(--font-body);
+}
+
+main {
+    padding-top: var(--header-height);
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -240,4 +256,34 @@ svg {
     text-decoration-thickness: 1.5px;
 }
 
+
 /* HERO SECTION */
+
+.hero {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero__image {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.hero__image img {
+    width: 100%;
+}
+
+.hero__title {
+    font-size: 2rem;
+}
+
+.hero__text {
+    font-size: 1.125rem;
+}
+
+.hero__socials {
+    display: flex;
+    gap: 1rem;
+}
