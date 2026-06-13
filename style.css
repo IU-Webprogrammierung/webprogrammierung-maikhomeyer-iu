@@ -162,3 +162,26 @@ svg {
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
 }
+
+.site-nav__hamburger-icon,
+.site-nav__hamburger-icon::before,
+.site-nav__hamburger-icon::after {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: currentColor;
+}
+
+.site-nav__hamburger-icon::before,
+.site-nav__hamburger-icon::after {
+    content: '';
+    position: absolute;
+}
+
+.site-nav__hamburger-icon::before {
+    transform: translateY(-0.5rem);
+}
+
+.site-nav__hamburger-icon::after {
+    transform: translateY(0.5rem);
+}

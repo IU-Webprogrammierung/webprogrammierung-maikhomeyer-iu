@@ -14,8 +14,17 @@
 
     <header class="site-header">
         <nav class="site-nav" aria-label="Hauptnavigation">
+
             <a href="#about" class="site-nav__logo">Maik Homeyer</a>
-            <ul class="site-nav__list">
+
+            <button class="site-nav__hamburger"
+                    aria-label="Navigation öffnen"
+                    aria-expanded="false"
+                    aria-contols="site-nav-menu">
+                <span class="site-nav__hamburger-icon" aria-hidden="true"></span>
+            </button>
+
+            <ul id="site-nav-menu" class="site-nav__list">
                 <li><a href="#projects" class="site-nav__link">Projekte</a></li>
                 <li><a href="#career" class="site-nav__link">Werdegang</a></li>
                 <li><a href="#contact" class="site-nav__link">Kontakt</a></li>
@@ -25,6 +34,7 @@
                     </button>
                 </li>
             </ul>
+
         </nav>
     </header>
 
