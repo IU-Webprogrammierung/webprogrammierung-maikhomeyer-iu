@@ -416,6 +416,58 @@ svg {
 }
 
 
+/* CONTACT */
+
+.contact {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background: var(--color-accent);
+    color: var(--color-background)
+}
+
+.contact__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact__title {
+    margin-bottom: 1rem;
+}
+
+.contact__text {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.contact__actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.contact__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    height: 3rem;
+    background: var(--color-background);
+    color: var(--color-accent);
+    font-weight: 500;
+    border-radius: 999px;
+}
+
+.contact__icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 100%;
+}
 
 
 /* MEDIA QUERIES */
