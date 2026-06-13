@@ -110,6 +110,21 @@ svg {
     max-width: 100%;
 }
 
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background: black;
+    color: white;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
 .site-header {
     width: 100%;
     padding: 3rem;
