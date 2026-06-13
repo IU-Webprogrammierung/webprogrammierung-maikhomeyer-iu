@@ -330,8 +330,8 @@ svg {
 }
 
 .projects__list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
@@ -359,4 +359,23 @@ svg {
 
 .project-card__category {
     font-style: italic;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 640px) {
+
+    .projects__list {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media (min-width: 1024px) {
+
+    .projects__list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
 }
