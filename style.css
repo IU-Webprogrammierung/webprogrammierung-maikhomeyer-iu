@@ -1,3 +1,5 @@
+/* FONTS */
+
 @font-face {
     font-family: 'Satoshi';
     src: url('assets/fonts/Satoshi-Regular.ttf') format('truetype');
@@ -53,6 +55,9 @@
     font-style: italic;
     font-display: swap;
 }
+
+
+/* GENERAL & RESETS */
 
 *,
 *::before,
@@ -110,6 +115,9 @@ svg {
     max-width: 100%;
 }
 
+
+/* SKIP-LINK */
+
 .skip-link {
     position: absolute;
     top: 0;
@@ -124,6 +132,9 @@ svg {
 .skip-link:focus {
     transform: translateY(0);
 }
+
+
+/* NAVIGATION */
 
 .site-header {
     position: fixed;
@@ -228,3 +239,5 @@ svg {
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
 }
+
+/* HERO SECTION */
