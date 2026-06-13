@@ -77,6 +77,9 @@
     --color-text: #000;
     --color-accent: #FF4E5F;
     --color-border: rgba(0, 0, 0, 0.12);
+
+    --color-surface-blur: rgba(255, 255, 255, 0.64);
+    --backdrop-blur: saturate(180%) blur(20px);
 }
 
 html {
@@ -176,7 +179,8 @@ svg {
     position: fixed;
     width: 100%;
     padding: 1.5rem;
-    background: var(--color-background);
+    background: var(--color-surface-blur);
+    backdrop-filter: var(--backdrop-blur);
     z-index: 10;
 }
 
@@ -255,7 +259,8 @@ svg {
     display: none;
     position: fixed;
     inset: 0;
-    background: var(--color-background);
+    background: var(--color-surface-blur);
+    backdrop-filter: var(--backdrop-blur);
     padding: 2rem;
     gap: 1rem;
 }
