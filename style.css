@@ -253,6 +253,7 @@ svg {
     background: var(--color-background);
     padding: 2rem;
     gap: 1rem;
+    z-index: 5;
 }
 
 body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
