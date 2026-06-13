@@ -20,7 +20,7 @@
             <button class="site-nav__hamburger"
                     aria-label="Navigation öffnen"
                     aria-expanded="false"
-                    aria-contols="site-nav-menu">
+                    aria-controls="site-nav-menu">
                 <span class="site-nav__hamburger-icon" aria-hidden="true"></span>
             </button>
 
@@ -78,40 +78,52 @@
 
         <!-- PROJECTS -->
 
-        <section id="projects">
-            <h2>Studienprojekte</h2>
-            <div>
-                <button type="button"
-                        commandfor="modal-urban-plant-club"
-                        command="show-modal"
-                        aria-label="Projektdetails zu Urban Plant Club öffnen">
-                    <img src="assets/placeholder-image.svg"
-                         alt="Screenshots aus dem Projekt 'Urban Plant Club'"
-                         aria-hidden="true">
-                    <span class="project-title">Urban Plant Club</span>
-                    <span class="project-category">Mobile App Design</span>
-                </button>
-                <button type="button"
-                        commandfor="modal-fleetbase"
-                        command="show-modal"
-                        aria-label="Projektdetails zu FleetBase öffnen">
-                    <img src="assets/placeholder-image.svg" 
-                         alt="Screenshots aus dem Projekt 'FleetBase'"
-                         aria-hidden="true">
-                    <span class="project-title">FleetBase</span>
-                    <span class="project-category">UI Design für Unternehmenssoftware</span>
-                </button>
-                <button type="button"
-                        commandfor="modal-overlook-hotel"
-                        command="show-modal"
-                        aria-label="Projektdetails zu Overlook Hotel öffnen">
-                    <img src="assets/placeholder-image.svg" 
-                         alt="Screenshots aus dem Projekt 'Overlook Hotel'"
-                         aria-hidden="true">
-                    <span class="project-title">Overlook Hotel</span>
-                    <span class="project-category">Responsive Webdesign</span>
-                </button>
-            </div>
+        <section id="projects" class="projects">
+            <h2 class="projects__title">Studienprojekte</h2>
+            <ul class="projects__list">
+                <li>
+                    <button type="button"
+                            class="project-card"
+                            commandfor="modal-urban-plant-club"
+                            command="show-modal"
+                            aria-label="Projektdetails zu Urban Plant Club öffnen">
+                        <img class="project-card__image"
+                            src="assets/placeholder-image.svg"
+                            alt="Screenshots aus dem Projekt 'Urban Plant Club'"
+                            aria-hidden="true">
+                        <span class="project-card__title">Urban Plant Club</span>
+                        <span class="project-card__category">Mobile App Design</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button"
+                            class="project-card"
+                            commandfor="modal-fleetbase"
+                            command="show-modal"
+                            aria-label="Projektdetails zu FleetBase öffnen">
+                        <img class="project-card__image"
+                            src="assets/placeholder-image.svg" 
+                            alt="Screenshots aus dem Projekt 'FleetBase'"
+                            aria-hidden="true">
+                        <span class="project-card__title">FleetBase</span>
+                        <span class="project-card__category">UI Design für Unternehmenssoftware</span>
+                    </button>
+                </li>
+                <li>                
+                    <button type="button"
+                            class="project-card"
+                            commandfor="modal-overlook-hotel"
+                            command="show-modal"
+                            aria-label="Projektdetails zu Overlook Hotel öffnen">
+                        <img class="project-card__image"
+                            src="assets/placeholder-image.svg" 
+                            alt="Screenshots aus dem Projekt 'Overlook Hotel'"
+                            aria-hidden="true">
+                        <span class="project-card__title">Overlook Hotel</span>
+                        <span class="project-card__category">Responsive Webdesign</span>
+                    </button>
+                </li>
+            </ul>
         </section>
 
         <!-- CAREER -->
