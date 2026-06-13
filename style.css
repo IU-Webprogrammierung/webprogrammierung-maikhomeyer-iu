@@ -182,9 +182,6 @@ svg {
     background: var(--color-surface-blur);
     backdrop-filter: var(--backdrop-blur);
     z-index: 10;
-}
-
-.site-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -249,23 +246,16 @@ svg {
     transform: translateY(0) rotate(-45deg);
 }
 
-.site-nav__logo,
-.site-nav__hamburger {
-    position: relative;
-    z-index: 2;
-}
-
 .site-nav__list {
     display: none;
     position: fixed;
     inset: 0;
-    background: var(--color-surface-blur);
-    backdrop-filter: var(--backdrop-blur);
+    background: var(--color-background);
     padding: 2rem;
     gap: 1rem;
 }
 
-.site-nav__hamburger[aria-expanded="true"] ~ .site-nav__list {
+body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     display: flex;
     flex-direction: column;
     justify-content: center;
