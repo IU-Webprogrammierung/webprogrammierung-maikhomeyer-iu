@@ -16,12 +16,20 @@
 
             <a href="#about" class="site-nav__logo">Maik Homeyer</a>
 
-            <button class="site-nav__hamburger"
-                    aria-label="Navigation öffnen"
-                    aria-expanded="false"
-                    aria-controls="site-nav-menu">
-                <span class="site-nav__hamburger-icon" aria-hidden="true"></span>
-            </button>
+            <div class="site-header__actions">
+                <button class="site-header__theme-toggle" aria-label="Farbschema umschalten" aria-pressed="false">
+                        <span aria-hidden="true">☀</span>
+                </button>
+
+                 <button class="site-nav__hamburger"
+                         aria-label="Navigation öffnen"
+                         aria-expanded="false"
+                         aria-controls="site-nav-menu">
+                    <span class="site-nav__hamburger-icon" aria-hidden="true"></span>
+                </button>
+
+
+            </div>
 
     </header>
 
@@ -31,11 +39,6 @@
             <li><a href="#projects" class="site-nav__link">Projekte</a></li>
             <li><a href="#career" class="site-nav__link">Werdegang</a></li>
             <li><a href="#contact" class="site-nav__link">Kontakt</a></li>
-            <li>
-                <button class="site-nav__toggle" aria-label="Farbschema umschalten" aria-pressed="false">
-                        Darstellung wechseln
-                </button>
-            </li>
             <li class="site-nav__imprint">
                 <a href="/impressum.html" class="site-nav__imprint-link">Impressum</a>
             </li>

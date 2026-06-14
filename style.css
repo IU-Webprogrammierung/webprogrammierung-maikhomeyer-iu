@@ -197,6 +197,25 @@ svg {
     color: var(--color-accent);
 }
 
+.site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.site-header__theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.site-header__theme-toggle:hover {
+    color: var(--color-accent);
+}
+
 .site-nav__hamburger {
     width: 2.5rem;
     height: 2.5rem;
