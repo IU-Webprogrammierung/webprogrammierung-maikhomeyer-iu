@@ -80,6 +80,8 @@
 
     --color-surface-blur: rgba(255, 255, 255, 0.64);
     --backdrop-blur: saturate(180%) blur(20px);
+
+    --section-padding-x: 1.5rem;
 }
 
 html {
@@ -178,7 +180,7 @@ svg {
 .site-header {
     position: fixed;
     width: 100%;
-    padding: 1.5rem;
+    padding: var(--section-padding-x);
     background: var(--color-surface-blur);
     backdrop-filter: var(--backdrop-blur);
     z-index: 10;
@@ -304,7 +306,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* HERO SECTION */
 
 .hero {
-    padding: 1.5rem;
+    padding: 0 var(--section-padding-x);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -359,7 +361,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* PROJECTS */
 
 .projects {
-    padding: 3rem 1.5rem;
+    padding: 3rem var(--section-padding-x);
 }
 
 .projects__title {
@@ -402,7 +404,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* CAREER */
 
 .career {
-    padding: 3rem 1.5rem;
+    padding: 3rem var(--section-padding-x);
 }
 
 .career__title {
@@ -443,7 +445,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* CONTACT */
 
 .contact {
-    padding: 3rem 1.5rem;
+    padding: 3rem var(--section-padding-x);
     text-align: center;
     background: var(--color-accent);
     color: var(--color-background)
@@ -504,7 +506,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 .site-footer__info {
     text-align: center;
-    padding: 2rem;
+    padding: 2rem var(--section-padding-x);
 }
 
 .site-footer__back-to-top {
@@ -523,6 +525,10 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 @media (min-width: 640px) {
 
     /* GENERAL */
+
+    :root {
+        --section-padding-x: 3rem;
+    }
 
     h2 {
         font-size: 2.25rem;
@@ -576,7 +582,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* HERO */
 
     .hero {
-        padding: 3rem 1.5rem;
+        padding: 5rem 1.5rem;
         gap: 3rem;
     }
 
@@ -605,7 +611,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* CAREER */
 
     .career {
-        padding: 5rem 1.5rem;
+        padding: 5rem var(--section-padding-x);
     }
 
     .career__title {
