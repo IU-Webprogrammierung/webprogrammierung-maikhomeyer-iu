@@ -82,6 +82,7 @@
     --backdrop-blur: saturate(180%) blur(20px);
 
     --section-padding-x: 1.5rem;
+    --section-padding-y: 3rem;
 }
 
 html {
@@ -306,7 +307,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* HERO SECTION */
 
 .hero {
-    padding: 0 var(--section-padding-x);
+    padding: 0 var(--section-padding-x) var(--section-padding-y) var(--section-padding-x);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -361,7 +362,8 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* PROJECTS */
 
 .projects {
-    padding: 3rem var(--section-padding-x);
+    padding: var(--section-padding-y) var(--section-padding-x);
+    background: rgba(0,0,0,0.03);
 }
 
 .projects__title {
@@ -404,7 +406,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* CAREER */
 
 .career {
-    padding: 3rem var(--section-padding-x);
+    padding: var(--section-padding-y) var(--section-padding-x);
 }
 
 .career__title {
@@ -445,7 +447,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 /* CONTACT */
 
 .contact {
-    padding: 3rem var(--section-padding-x);
+    padding: var(--section-padding-y) var(--section-padding-x);
     text-align: center;
     background: var(--color-accent);
     color: var(--color-background)
@@ -529,6 +531,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     :root {
         --section-padding-x: 2.5rem;
+        --section-padding-y: 5rem;
     }
 
     h2 {
@@ -600,6 +603,10 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     /* PROJECTS */
 
+    .projects {
+        padding: 5rem var(--section-padding-x);
+    }
+
     .projects__title {
         margin-bottom: 2rem;
     }
@@ -670,7 +677,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         padding: 0.75rem;
         background: transparent;
     }
-
 
 }
 
