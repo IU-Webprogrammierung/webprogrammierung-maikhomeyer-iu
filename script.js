@@ -1,3 +1,5 @@
+// Mobile Menu
+
 const hamburger = document.querySelector('.site-nav__hamburger');
 
 hamburger.addEventListener('click', () => {
@@ -14,4 +16,16 @@ navLinks.forEach(link => {
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.setAttribute('aria-label', 'Menü öffnen');
     });
+});
+
+// Header on 
+
+const header = document.querySelector('.site-header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        header.classList.add('site-header--scrolled');
+    } else {
+        header.classList.remove('site-header--scrolled');
+    }
 });
