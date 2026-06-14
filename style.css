@@ -593,8 +593,41 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     /* PROJECTS */
 
+    .projects__title {
+        margin-bottom: 2rem;
+    }
+
     .projects__list {
         grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* CAREER */
+
+    .career {
+        padding: 5rem 1.5rem;
+    }
+
+    .career__title {
+        margin-bottom: 2rem;
+    }
+
+    .career__list {
+        gap: 4rem;
+    }
+
+    .career__entries {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem 2rem;
+    }
+
+    .career__date {
+        margin-bottom: 0;
+    }
+
+    .career__description {
+        margin-bottom: 0;
     }
 
 
