@@ -567,6 +567,24 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     }
 
 
+    /* HERO */
+
+    .hero {
+        padding: 3rem 1.5rem;
+        gap: 3rem;
+    }
+
+    .hero__content {
+        text-align: center;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .hero__socials {
+        justify-content: center;
+    }
+
+
     /* PROJECTS */
 
     .projects__list {
