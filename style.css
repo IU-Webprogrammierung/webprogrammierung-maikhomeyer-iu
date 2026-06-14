@@ -71,6 +71,7 @@
 :root {
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'Satoshi', system-ui, sans-serif;
+    --font-size: 1rem;
     --header-height: 4rem;
 
     --color-background: #fff;
@@ -98,7 +99,8 @@ html {
 
 body {
     min-height: 100vh;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-size: var(--font-size);
     -webkit-font-smoothing: antialiased;
     font-family: var(--font-body);
     color: var(--color-text);
@@ -530,6 +532,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* GENERAL */
 
     :root {
+        --font-size: 1.125rem;
         --section-padding-x: 2.5rem;
         --section-padding-y: 5rem;
     }
