@@ -522,6 +522,12 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 @media (min-width: 640px) {
 
+    /* GENERAL */
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
 
     /* HEADER */
 
@@ -590,6 +596,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     .projects__list {
         grid-template-columns: 1fr 1fr;
     }
+
 
 }
 
