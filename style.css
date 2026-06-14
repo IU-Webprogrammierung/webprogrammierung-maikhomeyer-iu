@@ -269,6 +269,12 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     font-weight: 500;
 }
 
+.site-nav__imprint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1.125rem;
+}
+
 
 /* HERO SECTION */
 
