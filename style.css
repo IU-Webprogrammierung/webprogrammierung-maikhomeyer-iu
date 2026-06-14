@@ -527,7 +527,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* GENERAL */
 
     :root {
-        --section-padding-x: 3rem;
+        --section-padding-x: 2.5rem;
     }
 
     h2 {
