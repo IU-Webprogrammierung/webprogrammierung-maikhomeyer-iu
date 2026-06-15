@@ -177,7 +177,7 @@ svg {
 .site-header {
     position: fixed;
     width: 100%;
-    padding: var(--section-padding-x);
+    padding: 1.5rem;
     background: var(--color-surface-blur);
     backdrop-filter: var(--backdrop-blur);
     z-index: 10;
@@ -190,8 +190,8 @@ svg {
 }
 
 .site-header--scrolled {
-    padding-top: calc(var(--section-padding-x)*0.5);
-    padding-bottom: calc(var(--section-padding-x)*0.5);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -552,7 +552,13 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* HEADER */
 
     .site-header {
+        padding: 2rem 3rem;
         gap: 1.5rem;
+    }
+
+    .site-header--scrolled {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 
     .site-header__actions {
@@ -691,6 +697,25 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 }
 
 @media (min-width: 1024px) {
+
+    :root {
+        --font-size: 1.25rem;
+        --section-padding-x: 4rem;
+        --section-padding-y: 6rem;
+    }
+
+    .site-header {
+        padding: 3rem 4rem;
+    }
+
+    .site-header--scrolled {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .site-nav__logo {
+        font-size: 2rem;
+    }
 
     .hero {
         flex-direction: row;
