@@ -694,7 +694,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 @media (min-width: 1024px) {
 
     :root {
-        --font-size: 1.25rem;
         --section-padding-x: 2rem;
         --section-padding-y: 7.5rem;
     }
