@@ -153,6 +153,11 @@ svg {
     max-width: 100%;
 }
 
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
 
 /* SKIP-LINK */
 
@@ -619,24 +624,17 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     /* PROJECTS */
 
-    .projects {
-        padding: 5rem var(--section-padding-x);
-    }
-
     .projects__title {
         margin-bottom: 2rem;
     }
 
     .projects__list {
         grid-template-columns: 1fr 1fr;
+        gap: 2rem 1.5rem;
     }
 
 
     /* CAREER */
-
-    .career {
-        padding: 5rem var(--section-padding-x);
-    }
 
     .career__title {
         margin-bottom: 2rem;
@@ -663,9 +661,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     /* CONTACT */
 
-    .contact {
-        padding: 5rem var(--section-padding-x);
-    }
 
     .contact__text {
         font-size: 1.25rem;
@@ -700,8 +695,8 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     :root {
         --font-size: 1.25rem;
-        --section-padding-x: 4rem;
-        --section-padding-y: 6rem;
+        --section-padding-x: 2rem;
+        --section-padding-y: 7.5rem;
     }
 
     .site-header {
