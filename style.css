@@ -84,6 +84,8 @@
 
     --section-padding-x: 1.5rem;
     --section-padding-y: 3rem;
+
+    --border-radius-md: 2rem;
 }
 
 html {
@@ -343,6 +345,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 .hero__image img {
     width: 100%;
+    border-radius: var(--border-radius-md);
 }
 
 .hero__title {
@@ -417,13 +420,16 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     max-height: 480px;
     object-fit: cover;
     margin-bottom: 1rem;
+    border-radius: var(--border-radius-md);
 }
 
 .project-card__title {
+    padding-left: 0.75rem;
     font-weight: 700;
 }
 
 .project-card__category {
+    padding-left: 0.75rem;
     font-style: italic;
 }
 
