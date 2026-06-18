@@ -129,6 +129,7 @@ h3 {
 a {
     color: inherit;
     text-decoration: none;
+    text-underline-offset: 2px;
 }
 
 ul, ol {
@@ -309,6 +310,11 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     padding: 0.5rem 0;
     font-size: 1.75rem;
     font-weight: 500;
+    transition: color .16s ease;
+}
+
+.site-nav__link:hover {
+    color: var(--color-accent);
 }
 
 .site-nav__imprint {
@@ -369,6 +375,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     background: rgba(0,0,0,0.04);
     border: 1px solid rgba(0,0,0,0.04);
     border-radius: 100%;
+    transition: all .2s ease;
 }
 
 .hero__socials a:hover .hero__socials-icon {
@@ -398,6 +405,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     flex-direction: column;
     width: 100%;
     text-align: left;
+    transition: transform 0.3s cubic-bezier(0, 0, 0.5, 1);;
 }
 
 .project-card:hover {
@@ -759,6 +767,27 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
+}
+
+@media (hover: hover) {
+
+    .hero__socials a:hover {
+        transform: scale(1.1);
+        background: rgba(255,78,95,0.1);
+        border: 1px solid rgba(255,78,95,0.1);
+    }
+
+    .project-card:hover {
+        transform: scale(1.025);
+    }
+
+    .site-footer__info a:hover {
+        text-decoration: underline;
+    }
+
+    .site-footer__back-to-top:hover {
+        text-decoration: underline;
+    }
 }
 
 
