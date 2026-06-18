@@ -72,7 +72,7 @@
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'Satoshi', system-ui, sans-serif;
     --font-size: 1rem;
-    --header-height: 4rem;
+    --header-height: 6rem;
 
     --color-background: #fff;
     --color-text: #000;
@@ -184,7 +184,10 @@ svg {
 
 .site-header {
     position: fixed;
-    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
     padding: 1.5rem;
     background: var(--color-surface-blur);
     backdrop-filter: var(--backdrop-blur);
@@ -574,13 +577,21 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* HEADER */
 
     .site-header {
-        padding: 2rem 3rem;
-        gap: 1.5rem;
+        top: 2rem;
+        left: 0;
+        right: 0;
+        padding: 1rem 2rem;
+        box-shadow: 0px 4px 32px rgba(0,0,0,0);
+        border: 0px solid transparent;
+        border-radius: 999px;
     }
 
     .site-header--scrolled {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        left: 2rem;
+        right: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        box-shadow: 0px 4px 64px rgba(0,0,0,0.05);
     }
 
     .site-header__actions {
@@ -719,12 +730,15 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     }
 
     .site-header {
-        padding: 3rem 4rem;
+        top: 2rem;
+        left: 2rem;
+        right: 2rem;
     }
 
     .site-header--scrolled {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
     }
 
     .site-nav__logo {
