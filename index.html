@@ -223,10 +223,12 @@
      <!-- MODAL: URBAN PLANT CLUB -->
 
      <dialog id="modal-urban-plant-club"
+             class="modal"
              aria-labelledby="modal-urban-plant-club-title"
              closedby="any">
 
         <button type="button"
+                class="modal__close"
                 commandfor="modal-urban-plant-club"
                 command="close"
                 aria-label="Projektdetails schließen"
@@ -234,30 +236,40 @@
             <span aria-hidden="true">×</span>
         </button>
 
-        <article>
-            <header>
-                <p>Mobile App Design</p>
-                <h3 id="modal-urban-plant-club-title">Urban Plant Club</h3>
+        <article class="modal__content">
+            <header class="modal__header">
+                <p class="modal__category">Mobile App Design</p>
+                <h3 id="modal-urban-plant-club-title" class="modal__title">Urban Plant Club</h3>
             </header>
 
-            <p>Für ein Hochschulprojekt entstand die App Urban Plant Club, die das Thema Urban Gardening aufgreift und den Austausch sowie die Gemeinschaft innerhalb einer Kommune stärkt. Der gesamte Gestaltungsprozess umfasste Recherche, Ideenfindung, Konzeption sowie die Ausarbeitung von High Fidelity Layouts und eines klickbaren Prototyps.</p>
+            <p class="modal__description">Für ein Hochschulprojekt entstand die App Urban Plant Club, die das Thema Urban Gardening aufgreift und den Austausch sowie die Gemeinschaft innerhalb einer Kommune stärkt. Der gesamte Gestaltungsprozess umfasste Recherche, Ideenfindung, Konzeption sowie die Ausarbeitung von High Fidelity Layouts und eines klickbaren Prototyps.</p>
 
-            <ul>
-                <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer">Prototyp aufrufen</a></li>
+            <ul class="modal__links">
+                <li><a href="https://figma.com" class="modal__link" target="_blank" rel="noopener noreferrer">Prototyp aufrufen</a></li>
                 <li>Tools: Figma</li>
             </ul>
 
-            <figure>
-                <img src="assets/urban-plant-club-1.jpg" alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone">
-            </figure>
+            <ul class="modal__gallery">
 
-            <figure>
-                <img src="assets/urban-plant-club-2.jpg" alt="Startseite der Urban Plant Club App">
-            </figure>
+                <li>
+                    <figure>
+                        <img src="assets/urban-plant-club-1.jpg" alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone">
+                    </figure>
+                </li>
 
-            <figure>
-                <img src="assets/urban-plant-club-3.jpg" alt="Projektsuche Urban Plant Club App">
-            </figure>
+                <li>
+                    <figure>
+                        <img src="assets/urban-plant-club-2.jpg" alt="Startseite der Urban Plant Club App">
+                    </figure>
+                </li>
+
+                <li>
+                    <figure>
+                        <img src="assets/urban-plant-club-3.jpg" alt="Projektsuche Urban Plant Club App">
+                    </figure>
+                </li>
+
+            </ul>
         </article>
 
     </dialog>
@@ -265,10 +277,12 @@
     <!-- MODAL: FLEETBASE -->
 
     <dialog id="modal-fleetbase" 
+            class="modal"
             aria-labelledby="modal-fleetbase-title"
             closedby="any">
 
         <button type="button"
+                class="modal__close"
                 commandfor="modal-fleetbase"
                 command="close"
                 aria-label="Projektdetails schließen"
@@ -276,45 +290,55 @@
             <span aria-hidden="true">×</span>
         </button>
 
-        <article>
-            <header>
-                <p>UI Design für Unternehmenssoftware</p>
-                <h3 id="modal-fleetbase-title">FleetBase</h3>
+        <article class="modal__content">
+            <header class="modal__header">
+                <p class="modal__category">UI Design für Unternehmenssoftware</p>
+                <h3 id="modal-fleetbase-title" class="modal__title">FleetBase</h3>
             </header>
 
-            <p>FleetBase ist eine konzeptionelle UI/UX-Fallstudie für eine interne Unternehmenssoftware im Bereich der Qualitätssicherung eines Automobilherstellers. Ziel war es, komplexe Prozesse rund um Testfahrzeuge, Mängelerfassung und Wartung in eine klar strukturierte, rollenbasierte Benutzeroberfläche zu überführen. Im Projekt entstanden ein fundiertes Interaktionskonzept, ein eigenständiges Designsystem sowie ausgearbeitete Screendesigns für Desktop- und Tablet-Nutzung mit Fokus auf Konsistenz, Übersichtlichkeit und Skalierbarkeit.</p>
+            <p class="modal__description">FleetBase ist eine konzeptionelle UI/UX-Fallstudie für eine interne Unternehmenssoftware im Bereich der Qualitätssicherung eines Automobilherstellers. Ziel war es, komplexe Prozesse rund um Testfahrzeuge, Mängelerfassung und Wartung in eine klar strukturierte, rollenbasierte Benutzeroberfläche zu überführen. Im Projekt entstanden ein fundiertes Interaktionskonzept, ein eigenständiges Designsystem sowie ausgearbeitete Screendesigns für Desktop- und Tablet-Nutzung mit Fokus auf Konsistenz, Übersichtlichkeit und Skalierbarkeit.</p>
 
-            <ul>
-                <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer">Projekt im Detail</a></li>
+            <ul class="modal__links">
+                <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer" class="modal__link">Projekt im Detail</a></li>
                 <li>Tools: Figma</li>
             </ul>
 
-            <figure>
-                <img src="assets/fleetbase-1.jpg" alt="Komponenten aus dem Designsystem von FleetBase">
-            </figure>
-
-            <figure>
-                <img src="assets/fleetbase-2.jpg" alt="Desktop Übersicht aller Testfahrzeuge aus der Sicht eines Koordinators">
-            </figure>
-
-            <figure>
-                <img src="assets/fleetbase-3.jpg" alt="Tablet Übersicht aller Testfahrten aus der Sicht eines Prüfers">
-            </figure>
-
-            <figure>
-                <img src="assets/fleetbase-4.jpg" alt="Tablet Ansicht der Mängelerfassung aus der Sicht eines Prüfers">
-            </figure>
+            <ul class="modal__gallery">
+                <li>
+                    <figure>
+                        <img src="assets/fleetbase-1.jpg" alt="Komponenten aus dem Designsystem von FleetBase">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/fleetbase-2.jpg" alt="Desktop Übersicht aller Testfahrzeuge aus der Sicht eines Koordinators">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/fleetbase-3.jpg" alt="Tablet Übersicht aller Testfahrten aus der Sicht eines Prüfers">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/fleetbase-4.jpg" alt="Tablet Ansicht der Mängelerfassung aus der Sicht eines Prüfers">
+                    </figure>
+                </li>
+            </ul>
         </article>
 
     </dialog>
 
+
     <!-- MODAL: OVERLOOK HOTEL -->
 
     <dialog id="modal-overlook-hotel"
+            class="modal"
             aria-labelledby="modal-overlook-hotel-title"
             closedby="any">
 
         <button type="button"
+                class="modal__close"
                 commandfor="modal-overlook-hotel"
                 command="close"
                 aria-label="Projektdetails schließen"
@@ -322,34 +346,41 @@
             <span aria-hidden="true">×</span>
         </button>
 
-        <article>
-            <header>
-                <p>Responsive Webdesign</p>
-                <h3 id="modal-overlook-hotel-title">Overlook Hotel</h3>
+        <article class="modal__content">
+            <header class="modal__header">
+                <p class="modal__category">Responsive Webdesign</p>
+                <h3 id="modal-overlook-hotel-title" class="modal__title">Overlook Hotel</h3>
             </header>
 
-            <p>Im Rahmen eines Studienprojekts entstand der responsive Webauftritt für das fiktive "Overlook Hotel" – ein Erlebnishotel, das Gäste in die düstere Welt von Stanley Kubricks "The Shining" entführt. Ziel war es, die immersive Atmosphäre des Films bereits auf der Website spürbar zu machen und Besucher:innen über klare Storytelling-Elemente in die Erzählung einzubeziehen. Der Prozess umfasste Konkurrenzanalyse, Persona-Entwicklung, Sitemap und Wireframes bis hin zum finalen Design samt klickbarem Prototyp für Desktop und Mobile.</p>
+            <p class="modal__description">Im Rahmen eines Studienprojekts entstand der responsive Webauftritt für das fiktive "Overlook Hotel" – ein Erlebnishotel, das Gäste in die düstere Welt von Stanley Kubricks "The Shining" entführt. Ziel war es, die immersive Atmosphäre des Films bereits auf der Website spürbar zu machen und Besucher:innen über klare Storytelling-Elemente in die Erzählung einzubeziehen. Der Prozess umfasste Konkurrenzanalyse, Persona-Entwicklung, Sitemap und Wireframes bis hin zum finalen Design samt klickbarem Prototyp für Desktop und Mobile.</p>
 
-            <ul>
-                <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer">Zum Prototypen</a></li>
+            <ul class="modal__links">
+                <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer" class="modal__link">Zum Prototypen</a></li>
                 <li>Tools: Figma, FigJam</li>
             </ul>
 
-            <figure>
-                <img src="assets/overlook-hotel-1.jpg" alt="Startseite des Overlook Hotel mit Hero-Bild der verschneiten Berglandschaft">
-            </figure>
-
-            <figure>
-                <img src="assets/overlook-hotel-2.jpg" alt="Detailansicht eines Zimmers im Overlook Hotel">
-            </figure>
-
-            <figure>
-                <img src="assets/overlook-hotel-3.jpg" alt="Übersichtsseite der Zimmer und Suiten">
-            </figure>
-
-            <figure>
-                <img src="assets/overlook-hotel-4.jpg" alt="Mobile Ansicht des Overlook Hotel Webauftritts">
-            </figure>
+            <ul class="modal__gallery">
+                <li>
+                    <figure>
+                        <img src="assets/overlook-hotel-1.jpg" alt="Startseite des Overlook Hotel mit Hero-Bild der verschneiten Berglandschaft">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/overlook-hotel-2.jpg" alt="Detailansicht eines Zimmers im Overlook Hotel">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/overlook-hotel-3.jpg" alt="Übersichtsseite der Zimmer und Suiten">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/overlook-hotel-4.jpg" alt="Mobile Ansicht des Overlook Hotel Webauftritts">
+                    </figure>
+                </li>
+            </ul>
         </article>
 
     </dialog>
