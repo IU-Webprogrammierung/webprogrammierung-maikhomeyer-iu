@@ -865,14 +865,15 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     .site-header {
         top: 2rem;
-        left: 2rem;
-        right: 2rem;
+        left: 0rem;
+        right: 0rem;
     }
 
     .site-header--scrolled {
+        left: 2rem;
+        right: 2rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
-
     }
 
     .site-nav__logo {
@@ -943,6 +944,17 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 }
 
 @media (min-width: 1376px) {
+
+    .site-header {
+        top: 2rem;
+        left: 2rem;
+        right: 2rem;
+    }
+
+    .site-header--scrolled {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
     .modal {
         margin: 4rem auto;
