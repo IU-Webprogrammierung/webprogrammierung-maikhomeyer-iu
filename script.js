@@ -1,31 +1,36 @@
-// Mobile Menu
-
-const hamburger = document.querySelector('.site-nav__hamburger');
-
-hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+async function init() {
+    await loadComponent('.site-header', 'components/header.html');
+    await loadComponent('.site-footer', 'components/footer.html');
     
-    hamburger.setAttribute('aria-expanded', !isOpen);
-    hamburger.setAttribute('aria-label', isOpen ? 'Navigation öffnen' : 'Navigation schließen');
-});
+    initNavigation();
+    initScroll();
+}
 
-const navLinks = document.querySelectorAll('.site-nav__link');
+async function loadComponent(selector, path) {
+    const response = await fetch(path);
+    const html = await response.text();
+    const element = document.querySelector(selector);
+    element.innerHTML = html;
+}
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', 'Menü öffnen');
+function initNavigation() {
+    const hamburger = document.querySelector('.site-nav__hamburger');
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Navigation öffnen' : 'Navigation schließen');
     });
-});
+}
 
-// Header on 
+function initScroll() {
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            header.classList.add('site-header--scrolled');
+        } else {
+            header.classList.remove('site-header--scrolled');
+        }
+    });
+}
 
-const header = document.querySelector('.site-header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 0) {
-        header.classList.add('site-header--scrolled');
-    } else {
-        header.classList.remove('site-header--scrolled');
-    }
-});
+init();
