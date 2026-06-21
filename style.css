@@ -316,7 +316,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     padding: 0.5rem 0;
     font-size: 1.75rem;
     font-weight: 500;
-    transition: color .16s ease;
+    transition: all .16s ease;
 }
 
 .site-nav__link:hover {
@@ -377,10 +377,9 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     background: rgba(0,0,0,0.04);
-    border: 1px solid rgba(0,0,0,0.04);
     border-radius: 100%;
     transition: all .2s ease;
 }
@@ -525,10 +524,11 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     color: var(--color-accent);
     font-weight: 500;
     border-radius: 999px;
+    transition: all .16s ease;
 }
 
 .contact__button:hover {
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 .contact__button svg {
@@ -558,7 +558,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 }
 
 .site-footer__back-to-top:hover {
-    background: color-mix(in srgb, var(--color-accent), black 24%);
+    background: color-mix(in srgb, var(--color-accent), black 16%);
 }
 
 .site-footer__back-to-top svg {
@@ -722,7 +722,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         flex-direction: row;
         background: transparent;
         padding: 0;
-        gap: 2rem;
+        gap: 0;
         height: auto;
     }
 
@@ -731,8 +731,12 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     }
 
     .site-nav__link {
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+        border-radius: 999px;
+        height: 3.5rem;
         font-size: 1.125rem;
-        padding: 0;
     }
 
     .site-nav__imprint {
@@ -965,10 +969,13 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 @media (hover: hover) {
 
+    .site-nav__link:hover {
+        background: rgba(255,78,95,0.08);
+    }
+
     .hero__socials a:hover {
-        transform: scale(1.1);
-        background: rgba(255,78,95,0.1);
-        border: 1px solid rgba(255,78,95,0.1);
+        transform: scale(1.05);
+        background: rgba(255,78,95,0.08);
     }
 
     .project-card:hover {
