@@ -557,7 +557,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 /* MODAL */
 
-/* MODAL */
 
 .modal {
     width: 100%;
@@ -569,6 +568,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     background: var(--color-background);
     color: var(--color-text);
     overflow-y: auto;
+    transition: .4s ease;
 }
 
 .modal::backdrop {
@@ -800,7 +800,27 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     }
 
 
+    /* MODAL */
+
+    .modal {
+        width: calc(100% - 4rem);
+        height: calc(100% - 4rem);
+        margin: 2rem;
+        border-radius: var(--border-radius-md);
+    }
+
+    .modal::backdrop {
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: var(--backdrop-blur);
+    }
+
+    .modal__content {
+        padding: 4rem 2rem;
+    }
+
+
 }
+
 
 @media (min-width: 1024px) {
 
@@ -871,7 +891,31 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         padding: 5rem 2rem;
     }
 
+
+    /* MODAL */
+
+    .modal {
+        width: calc(100% - 4rem);
+        height: auto;
+        max-width: 1280px;
+        max-height: calc(100% - 4rem);
+        margin: 2rem auto;
+    }
+
+    .modal__content {
+        padding: 4rem;
+    }
+
 }
+
+@media (min-width: 1376px) {
+
+    .modal {
+        margin: 4rem auto;
+    }
+
+}
+
 
 @media (hover: hover) {
 
