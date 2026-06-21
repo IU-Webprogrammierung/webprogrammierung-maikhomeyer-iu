@@ -951,6 +951,10 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         transform: scale(1.025);
     }
 
+    .site-footer__info a:hover {
+        text-decoration: underline;
+    }
+
 }
 
 
