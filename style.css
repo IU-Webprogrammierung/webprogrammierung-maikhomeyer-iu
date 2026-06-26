@@ -71,7 +71,7 @@
 :root {
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'Satoshi', system-ui, sans-serif;
-    --font-size: 1rem;
+    --font-size: 1.125rem;
     --header-height: 6rem;
 
     --color-background: #fff;
@@ -697,6 +697,60 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 }
 
 
+/* IMPRINT */
+
+.imprint {
+    padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.imprint__inner {
+    max-width: 1280px;
+}
+
+.imprint__title {
+    margin-bottom: 2rem;
+}
+
+.imprint__contact-title,
+.imprint__section-title {
+    font-family: var(--font-body);
+    margin-bottom: 1rem;
+}
+
+.imprint__contact-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.imprint__section-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0.5;
+    margin-top: 2rem;
+}
+
+.imprint__address,
+.imprint__paragraph {
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+.imprint__paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.imprint a {
+    text-decoration: underline;
+}
+
+.imprint a:hover {
+    color: var(--color-accent);
+}
+
+
+
 /* MEDIA QUERIES */
 
 @media (min-width: 640px) {
@@ -704,7 +758,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* GENERAL */
 
     :root {
-        --font-size: 1.125rem;
         --section-padding-x: 2.5rem;
         --section-padding-y: 5rem;
     }
@@ -979,6 +1032,20 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     .modal__content {
         padding: 4rem;
+    }
+
+
+    .imprint__title {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .imprint__contact-title {
+        font-size: 1.5rem;
+    }
+
+    .imprint__section-title {
+        margin-top: 3rem;
     }
 
 }
