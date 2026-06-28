@@ -696,6 +696,10 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     border-radius: var(--border-radius-md);
 }
 
+.modal__gallery-item {
+
+}
+
 
 /* IMPRINT */
 
@@ -940,6 +944,16 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         margin-right: 0.75rem;
         opacity: 0.12;
         pointer-events: none;
+    }
+
+    .modal__gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .modal__gallery-item--full {
+        grid-column: 1 / -1;
     }
 
 }
