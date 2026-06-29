@@ -103,6 +103,11 @@ body {
     color: var(--color-text);
 }
 
+html:has(dialog[open]),
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
 main {
     padding-top: var(--header-height);
 }
