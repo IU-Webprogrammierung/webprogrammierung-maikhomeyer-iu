@@ -932,6 +932,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         flex-direction: row;
         align-items: center;
         gap: 0.75rem;
+        margin-bottom: 4rem;
     }
 
     .modal__links-meta::before {
@@ -1042,6 +1043,10 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         max-width: 1280px;
         max-height: calc(100% - 4rem);
         margin: 2rem auto;
+    }
+
+    .modal__title {
+        font-size: 2.5rem;
     }
 
     .modal__content {
