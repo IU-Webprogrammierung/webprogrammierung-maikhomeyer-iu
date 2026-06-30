@@ -617,7 +617,11 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     background: var(--color-background);
     color: var(--color-text);
     overflow-y: auto;
-    transition: .4s ease;
+    scrollbar-width: none;      
+}
+
+.modal::-webkit-scrollbar {
+    display: none;
 }
 
 .modal::backdrop {
@@ -644,7 +648,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 }
 
 .modal__content {
-    padding: 3rem 1.5rem 3rem;
+    padding: 3rem 1.5rem;
 }
 
 .modal__header {
@@ -699,10 +703,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 .modal__gallery img {
     width: 100%;
     border-radius: var(--border-radius-md);
-}
-
-.modal__gallery-item {
-
 }
 
 
@@ -918,10 +918,17 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     /* MODAL */
 
     .modal {
-        width: calc(100% - 4rem);
-        height: calc(100% - 4rem);
-        margin: 2rem;
+        max-width: 1280px;
+        background: transparent;
+        margin: 0 auto;
+    }
+
+    .modal__content {
+        background: var(--color-background);
         border-radius: var(--border-radius-md);
+        margin: 2rem;
+        padding: 4rem 2rem;
+        position: relative;
     }
 
     .modal::backdrop {
@@ -929,9 +936,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         backdrop-filter: var(--backdrop-blur);
     }
 
-    .modal__content {
-        padding: 4rem 2rem;
-    }
 
     .modal__links {
         flex-direction: row;
@@ -1042,20 +1046,13 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     /* MODAL */
 
-    .modal {
-        width: calc(100% - 4rem);
-        height: auto;
-        max-width: 1280px;
-        max-height: calc(100% - 4rem);
-        margin: 2rem auto;
+
+    .modal__content {
+        padding: 4rem;
     }
 
     .modal__title {
         font-size: 2.5rem;
-    }
-
-    .modal__content {
-        padding: 4rem;
     }
 
 
@@ -1087,7 +1084,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
         padding-bottom: 1rem;
     }
 
-    .modal {
+    .modal__content {
         margin: 4rem auto;
     }
 
