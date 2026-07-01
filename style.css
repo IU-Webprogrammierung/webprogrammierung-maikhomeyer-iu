@@ -229,8 +229,10 @@ svg {
     justify-content: space-between;
     align-items: center;
     font-size: 1.125rem;
-    transition: padding 0.3s cubic-bezier(0, 0, 0.5, 1);
     border-bottom: 1px solid transparent;
+    transition-property: padding, left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
 }
 
 .site-header--scrolled {
