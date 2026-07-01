@@ -4,6 +4,7 @@ async function init() {
     
     initNavigation();
     initScroll();
+    initThemeToggle();
 }
 
 async function loadComponent(selector, path) {
@@ -34,3 +35,46 @@ function initScroll() {
 }
 
 init();
+
+// THEME TOGGLE
+
+const THEME_STORAGE_KEY = 'theme';
+
+function getInitialTheme() {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    if (stored) return stored;
+    
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+
+    const toggle = document.querySelector('.site-header__theme-toggle');
+    if (toggle) updateToggleState(toggle);
+}
+
+applyTheme(getInitialTheme());
+
+function initThemeToggle() {
+    const toggle = document.querySelector('.site-header__theme-toggle');
+    if (!toggle) return;
+    
+    toggle.addEventListener('click', toggleTheme);
+    
+    // aria-pressed passend zum aktuellen Theme setzen
+    updateToggleState(toggle);
+}
+
+function updateToggleState(toggle) {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    toggle.setAttribute('aria-pressed', isDark);
+    toggle.setAttribute('aria-label', isDark ? 'Zum hellen Farbschema wechseln' : 'Zum dunklen Farbschema wechseln');
+}
