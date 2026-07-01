@@ -78,7 +78,7 @@
     --color-background-secondary: rgba(0,0,0,0.04);
     --color-text: #000;
     --color-accent: #FF4E5F;
-    --color-accent-hover: rgba(255,78,95,0.1);
+    --color-accent-hover: rgba(255,78,95,0.12);
     --color-border-primary: rgba(0, 0, 0, 0.16);
     --color-border-secondary: rgba(0, 0, 0, 0.08);
 
@@ -97,9 +97,11 @@
     --color-background-primary: #0f0f0f;
     --color-background-secondary: rgba(255,255,255,0.08);
     --color-text: #fff;
+    --color-accent: #5778ff;
+    --color-accent-hover: rgba(87,120,255,0.12);
     --color-border-primary: rgba(255, 255, 255, 0.24);
     --color-border-secondary: rgba(255, 255, 255, 0.16);
-    --color-surface-blur: rgba(0, 0, 0, 0.64);
+    --color-surface-blur: rgba(15, 15, 15, 0.64);
     --color-backdrop: rgba(255, 255, 255, 0.12);
 }
 
@@ -110,7 +112,7 @@
         --color-text: #fff;
         --color-border-primary: rgba(255, 255, 255, 0.24);
         --color-border-secondary: rgba(255, 255, 255, 0.16);
-        --color-surface-blur: rgba(10, 10, 10, 0.64);
+        --color-surface-blur: rgba(15, 15, 15, 0.64);
         --color-backdrop: rgba(255, 255, 255, 0.12);
     }
 }
@@ -582,7 +584,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 }
 
 .contact__button:hover::before {
-    background: rgba(255,78,95,0.2);
+    background: var(--color-accent-hover);
 }
 
 .contact__button svg {
