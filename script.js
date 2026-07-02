@@ -25,13 +25,27 @@ function initNavigation() {
 
 function initScroll() {
     const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
+    
+    // Transition initial deaktivieren
+    header.classList.add('site-header--no-transition');
+    
+    function updateHeader() {
         if (window.scrollY > 0) {
             header.classList.add('site-header--scrolled');
         } else {
             header.classList.remove('site-header--scrolled');
         }
+    }
+    
+    updateHeader();
+    
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            header.classList.remove('site-header--no-transition');
+        });
     });
+    
+    window.addEventListener('scroll', updateHeader);
 }
 
 init();
