@@ -158,6 +158,7 @@ h1, h2 {
 
 h2 {
     font-size: 2rem;
+    line-height: 1.2;
 }
 
 h3 {
@@ -167,6 +168,11 @@ h3 {
     letter-spacing: 2px;
     text-transform: uppercase;
     opacity: 0.6;
+}
+
+.text-highlighted {
+    color: var(--color-accent);
+    font-style: italic;
 }
 
 a {
@@ -804,7 +810,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     }
 
     h2 {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
 
 
@@ -893,8 +899,9 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     /* PROJECTS */
 
-    .projects__title {
-        margin-bottom: 2rem;
+    .projects__title,
+    .career__title {
+        margin-bottom: 3rem;
     }
 
     .projects__list {
@@ -904,10 +911,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 
     /* CAREER */
-
-    .career__title {
-        margin-bottom: 2rem;
-    }
 
     .career__list {
         gap: 4rem;
@@ -1008,7 +1011,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     }
 
     h2 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .site-header {
@@ -1064,6 +1067,11 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
     .hero__socials {
         justify-content: flex-start;
+    }
+
+    .projects__title,
+    .career__title  {
+        margin-bottom: 3.5rem;
     }
 
     .projects__list {
