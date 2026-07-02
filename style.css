@@ -77,9 +77,9 @@
     --color-background-primary: #fff;
     --color-background-secondary: rgba(0,0,0,0.04);
     --color-text: #000;
-    --color-text-inverse: #fff;
     --color-accent: #FF4E5F;
-    --color-accent-hover: rgba(255,78,95,0.12);
+    --color-accent-surface: #FF4E5F;
+    --color-accent-hover: color-mix(in lch, var(--color-accent), transparent 88%);
     --color-border-primary: rgba(0, 0, 0, 0.16);
     --color-border-secondary: rgba(0, 0, 0, 0.08);
     --color-border-inverse: rgba(255, 255, 255, 0.12);
@@ -97,11 +97,10 @@
 
 [data-theme="dark"] {
     --color-background-primary: #0f0f0f;
-    --color-background-secondary: rgba(255,255,255,0.08);
+    --color-background-secondary: rgba(255,255,255,0.04);
     --color-text: #fff;
-    --color-text-inverse: #0f0f0f;
-    --color-accent: #ffe100;
-    --color-accent-hover: rgba(255,225,0,0.12);
+    --color-accent: #6871E9;
+    --color-accent-surface: #5C64E5;
     --color-border-primary: rgba(255, 255, 255, 0.24);
     --color-border-secondary: rgba(255, 255, 255, 0.16);
     --color-border-inverse: rgba(0, 0, 0, 0.08);
@@ -112,11 +111,10 @@
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
         --color-background-primary: #0f0f0f;
-        --color-background-secondary: rgba(255,255,255,0.08);
+        --color-background-secondary: rgba(255,255,255,0.04);
         --color-text: #fff;
-        --color-text-inverse: #0f0f0f;
-        --color-accent: #ffe100;
-        --color-accent-hover: rgba(255,225,0,0.12);
+        --color-accent: #6871E9;
+        --color-accent-surface: #5C64E5;
         --color-border-primary: rgba(255, 255, 255, 0.24);
         --color-border-secondary: rgba(255, 255, 255, 0.16);
         --color-border-inverse: rgba(0, 0, 0, 0.08);
@@ -534,11 +532,11 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
 
 .site-footer {
     padding: 0 1.5rem 1.5rem;
-    color: var(--color-text-inverse);
+    color: white;
 }
 
 .site-footer__inner {
-    background: var(--color-accent);
+    background: var(--color-accent-surface);
     border-radius: var(--border-radius-md);
     overflow: hidden;
 }
@@ -572,7 +570,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-nav__list {
     gap: 0.65rem;
     padding: 0 2rem;
     height: 3.5rem;
-    background: var(--color-background-primary);
+    background: white;
     color: var(--color-accent);
     font-weight: 500;
     border-radius: 999px;
