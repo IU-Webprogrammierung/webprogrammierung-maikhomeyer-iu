@@ -50,6 +50,7 @@ function initScroll() {
 
 init();
 
+
 // THEME TOGGLE
 
 const THEME_STORAGE_KEY = 'theme';
@@ -71,14 +72,14 @@ function toggleTheme() {
     applyTheme(newTheme);
     localStorage.setItem(THEME_STORAGE_KEY, newTheme);
 
-    const toggle = document.querySelector('.site-header__theme-toggle');
+    const toggle = document.querySelector('.theme-toggle');
     if (toggle) updateToggleState(toggle);
 }
 
 applyTheme(getInitialTheme());
 
 function initThemeToggle() {
-    const toggle = document.querySelector('.site-header__theme-toggle');
+    const toggle = document.querySelector('.theme-toggle');
     if (!toggle) return;
     
     toggle.addEventListener('click', toggleTheme);
