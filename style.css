@@ -361,7 +361,7 @@ svg {
 [data-theme="dark"] .theme-toggle__icon--moon,
 [data-theme="light"] .theme-toggle__track:hover .theme-toggle__icon--sun,
 [data-theme="dark"] .theme-toggle__track:hover .theme-toggle__icon--moon  {
-    color: #fff:
+    color: #fff;
     opacity: 1;
 }
 
