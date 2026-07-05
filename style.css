@@ -775,12 +775,24 @@ svg {
 
 .career__title {
     margin-bottom: 1.5rem;
+
+    @media (min-width: 640px) {
+        margin-bottom: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+        margin-bottom: 3.5rem;
+    }
 }
 
 .career__list {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+
+    @media (min-width: 640px) {
+        gap: 4rem;
+    }
 }
 
 .career__group-title {
@@ -792,19 +804,33 @@ svg {
 .career__entries {
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 640px) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem 2rem;
+    }
 }
 
 .career__date {
     font-weight: 700;
     margin-bottom: 0.25rem;
+
+    @media (min-width: 640px) {
+        margin-bottom: 0;
+    }
 }
 
 .career__description {
     margin-bottom: 1.5rem;
-}
 
-.career__description:last-child {
-    margin-bottom: 0;
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 640px) {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -1086,27 +1112,6 @@ svg {
 
     h2 {
         font-size: 2.5rem;
-    }
-
-
-    /* CAREER */
-
-    .career__list {
-        gap: 4rem;
-    }
-
-    .career__entries {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 1rem 2rem;
-    }
-
-    .career__date {
-        margin-bottom: 0;
-    }
-
-    .career__description {
-        margin-bottom: 0;
     }
 
 
