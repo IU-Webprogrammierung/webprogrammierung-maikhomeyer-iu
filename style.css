@@ -189,7 +189,7 @@ h3 {
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.6;
+    color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 
 .text-highlighted {
@@ -228,6 +228,11 @@ svg {
 .container {
     max-width: 1280px;
     margin: 0 auto;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: white;
 }
 
 
@@ -333,7 +338,7 @@ svg {
         color: var(--color-accent);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 640px) {
         font-size: 2rem;
     }
 }
@@ -521,7 +526,7 @@ svg {
     transition: all .16s ease;
 
     &:hover {
-     color: var(--color-accent);
+        color: var(--color-accent);
     }
 
     @media (min-width: 640px) {
@@ -652,7 +657,7 @@ svg {
         margin: 0 auto;
     }
 
-     @media (min-width: 1024px) {
+    @media (min-width: 1024px) {
         flex: 1;
         text-align: left;
         margin: 0;
@@ -865,6 +870,11 @@ svg {
 .site-footer {
     padding: 0 1.5rem 1.5rem;
     color: white;
+
+    ::selection {
+        background: white;
+        color: var(--color-accent);
+    }
 }
 
 .site-footer__inner {
@@ -1003,7 +1013,7 @@ svg {
     background: var(--color-background-primary);
     color: var(--color-text);
     overflow-y: auto;
-    scrollbar-width: none; 
+    scrollbar-width: none;
     
     &::-webkit-scrollbar {
         display: none;
