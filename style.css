@@ -248,6 +248,7 @@ svg {
     }
 }
 
+
 /* NAVIGATION */
 
 .site-header {
@@ -772,7 +773,6 @@ svg {
     }
 }
 
-
 .project-card__image {
     width: 100%;
     aspect-ratio: 5 / 7;
@@ -861,7 +861,6 @@ svg {
 
 
 /* CONTACT & FOOTER */
-
 
 .site-footer {
     padding: 0 1.5rem 1.5rem;
@@ -993,7 +992,6 @@ svg {
 
 
 /* MODAL */
-
 
 .modal {
     width: 100%;
