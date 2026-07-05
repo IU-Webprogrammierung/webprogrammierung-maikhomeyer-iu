@@ -93,6 +93,16 @@
 
     --border-radius-md: 2rem;
     --border-radius-sm: 1.5rem;
+
+    @media (min-width: 640px) {
+        --section-padding-x: 2.5rem;
+        --section-padding-y: 5rem;
+    }
+
+    @media (min-width: 1024px) {
+        --section-padding-x: 2rem;
+        --section-padding-y: 7.5rem;
+    }
 }
 
 [data-theme="dark"] {
@@ -127,6 +137,10 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
     background: var(--color-background-primary);
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
 }
 
 body {
@@ -159,6 +173,14 @@ h1, h2 {
 h2 {
     font-size: 2rem;
     line-height: 1.2;
+
+    @media (min-width: 640px) {
+        font-size: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 3rem;
+    }
 }
 
 h3 {
@@ -308,6 +330,10 @@ svg {
 
     &:hover {
         color: var(--color-accent);
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 2rem;
     }
 }
 
@@ -1141,6 +1167,14 @@ svg {
 
 .imprint {
     padding: var(--section-padding-y) var(--section-padding-x);
+
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--color-accent);
+        }
+    }
 }
 
 .imprint__inner {
@@ -1149,26 +1183,37 @@ svg {
 
 .imprint__title {
     margin-bottom: 2rem;
-}
 
-.imprint__contact-title,
-.imprint__section-title {
-    font-family: var(--font-body);
-    margin-bottom: 1rem;
+    @media (min-width: 1024px) {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
 }
 
 .imprint__contact-title {
+    font-family: var(--font-body);
+    margin-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 700;
+
+    @media (min-width: 1024px) {
+        font-size: 1.5rem;
+    }
 }
 
 .imprint__section-title {
+    font-family: var(--font-body);
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 2px;
     opacity: 0.5;
     margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: 1024px) {
+        margin-top: 3rem;
+    }
 }
 
 .imprint__address,
@@ -1179,68 +1224,4 @@ svg {
 
 .imprint__paragraph:last-child {
     margin-bottom: 0;
-}
-
-.imprint a {
-    text-decoration: underline;
-}
-
-.imprint a:hover {
-    color: var(--color-accent);
-}
-
-
-
-/* MEDIA QUERIES */
-
-@media (min-width: 640px) {
-
-    /* GENERAL */
-
-    :root {
-        --section-padding-x: 2.5rem;
-        --section-padding-y: 5rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-
-}
-
-
-@media (min-width: 1024px) {
-
-    :root {
-        --section-padding-x: 2rem;
-        --section-padding-y: 7.5rem;
-    }
-
-    h2 {
-        font-size: 3rem;
-    }
-
-    .site-nav__logo {
-        font-size: 2rem;
-    }
-
-    .imprint__title {
-        font-size: 3rem;
-        margin-bottom: 4rem;
-    }
-
-    .imprint__contact-title {
-        font-size: 1.5rem;
-    }
-
-    .imprint__section-title {
-        margin-top: 3rem;
-    }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
 }
