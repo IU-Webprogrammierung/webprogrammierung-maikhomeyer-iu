@@ -703,12 +703,29 @@ svg {
 
 .projects__title {
     margin-bottom: 1.5rem;
+
+    @media (min-width: 640px) {
+        margin-bottom: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+        margin-bottom: 3.5rem;
+    }
 }
 
 .projects__list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+
+    @media (min-width: 640px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .project-card {
@@ -717,11 +734,18 @@ svg {
     width: 100%;
     text-align: left;
     transition: transform 0.3s cubic-bezier(0, 0, 0.5, 1);
+
+    &:hover {
+        color: var(--color-accent);
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.025);
+        }
+    }
 }
 
-.project-card:hover {
-    color: var(--color-accent);
-}
 
 .project-card__image {
     width: 100%;
@@ -1065,19 +1089,6 @@ svg {
     }
 
 
-    /* PROJECTS */
-
-    .projects__title,
-    .career__title {
-        margin-bottom: 3rem;
-    }
-
-    .projects__list {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem 1.5rem;
-    }
-
-
     /* CAREER */
 
     .career__list {
@@ -1186,15 +1197,6 @@ svg {
         font-size: 2rem;
     }
 
-    .projects__title,
-    .career__title  {
-        margin-bottom: 3.5rem;
-    }
-
-    .projects__list {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
     .contact {
         padding: 5rem 2rem;
     }
@@ -1237,10 +1239,6 @@ svg {
 
 
 @media (hover: hover) {
-
-    .project-card:hover {
-        transform: scale(1.025);
-    }
 
     .site-footer__info a:hover {
         text-decoration: underline;
