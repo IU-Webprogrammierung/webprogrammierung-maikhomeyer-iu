@@ -357,7 +357,7 @@ svg {
         height: 2.5rem;
         background: var(--color-background-secondary);
         border-radius: 999px;
-        transition: all 0.2s cubic-bezier(0, 0, 0.5, 1);
+        transition: all 0.16s cubic-bezier(0, 0, 0.5, 1);
 
         &:hover {
             background: var(--color-accent-hover);
@@ -365,6 +365,10 @@ svg {
             .theme-toggle__icon {
                 color: var(--color-accent);
             }
+        }
+
+        &:active {
+            transform: scale(0.9);
         }
     }
 
@@ -527,6 +531,10 @@ svg {
 
     &:hover {
         color: var(--color-accent);
+    }
+
+    &:active {
+        transform: scale(0.9);
     }
 
     @media (min-width: 640px) {
@@ -704,7 +712,7 @@ svg {
         height: 3.5rem;
         background: var(--color-background-secondary);
         border-radius: 100%;
-        transition: all .2s ease;
+        transition: all .16s ease;
 
         &:hover {
             transform: scale(1.05);
@@ -713,6 +721,10 @@ svg {
             .hero__socials-icon {
                 color: var(--color-accent);
             }
+        }
+
+        &:active {
+            transform: scale(0.9);
         }
     }
 
@@ -765,16 +777,15 @@ svg {
     flex-direction: column;
     width: 100%;
     text-align: left;
-    transition: transform 0.3s cubic-bezier(0, 0, 0.5, 1);
+    transition: transform 0.24s cubic-bezier(0, 0, 0.5, 1);
 
     &:hover {
         color: var(--color-accent);
+        transform: scale(1.025);
     }
 
-    @media (hover: hover) {
-        &:hover {
-            transform: scale(1.025);
-        }
+    &:active {
+        transform: scale(1);
     }
 }
 
@@ -924,7 +935,7 @@ svg {
     color: var(--color-accent);
     font-weight: 500;
     border-radius: 999px;
-    transition: all .16s ease;
+    transition: all .16s cubic-bezier(0, 0, 0.5, 1);
 
     &::before {
         content: '';
@@ -940,6 +951,10 @@ svg {
 
     &:hover::before {
         background: var(--color-accent-hover);
+    }
+
+    &:active {
+        transform: scale(0.9);
     }
 
     svg {
@@ -984,10 +999,15 @@ svg {
     padding: 0 1.5rem;
     border: 4px solid transparent;
     background: rgba(0,0,0,0.08);
+    transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1);;
 
     &:hover {
         border: 4px solid rgba(0,0,0,0.08);
         background: transparent;
+    }
+
+    &:active {
+        transform: scale(0.9);
     }
 
     svg {
@@ -1047,6 +1067,7 @@ svg {
     background: var(--color-background-secondary);
     font-size: 1.5rem;
     z-index: 1;
+    transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1);
 
     &:hover {
         background: var(--color-accent-hover);
@@ -1054,6 +1075,10 @@ svg {
         svg {
             color: var(--color-accent);
         }
+    }
+
+    &:active {
+        transform: scale(0.9);
     }
 }
 
@@ -1096,7 +1121,7 @@ svg {
     font-weight: 400;
     letter-spacing: 0;
     text-transform: none;
-    opacity: 1;
+    color: var(--color-text);
 
     @media (min-width: 1024px) {
         font-size: 2.5rem;
