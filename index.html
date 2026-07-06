@@ -26,39 +26,43 @@
 
         <section id="about" class="hero">
             <div class="container hero__inner">
-                <div class="hero__image">
-                    <svg viewBox="0 0 200 200" class="hero__circle">
-                        <defs>
-                            <path id="circle-path" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
-                        </defs>
-                        <text>
-                            <textPath href="#circle-path">
-                                Open for work · Open for work ·
-                            </textPath>
-                        </text>
-                    </svg>
+                <div class="hero__image reveal">
+                    <div class="hero__circle-wrapper reveal reveal--scale" style="transition-delay: 0.60s">
+                        <svg viewBox="0 0 200 200" class="hero__circle">
+                            <defs>
+                                <path id="circle-path" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+                            </defs>
+                            <text>
+                                <textPath href="#circle-path">
+                                    Open for work · Open for work ·
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
                     <img src="assets/profil.jpg" alt="Porträt von Maik">
                 </div>
                 <div class="hero__content">
-                    <h1 class="hero__title"><span class="hero__title-highlight">Hey, ich bin Maik! </span>UX Designer aus Hannover</h1>
-                    <p class="hero__text">Spezialisiert auf das Gestalten von digitalen Erlebnissen. UI/UX Design, Motion Design & 3D Design.</p>
+                    <h1 class="hero__title reveal" style="transition-delay: 0.12s">
+                        <span class="hero__title-highlight">Hey, ich bin Maik! </span>
+                        UX Designer aus Hannover</h1>
+                    <p class="hero__text reveal" style="transition-delay: 0.24s">Spezialisiert auf das Gestalten von digitalen Erlebnissen. UI/UX Design, Motion Design & 3D Design.</p>
                     <ul class="hero__socials">
-                        <li>
+                        <li class="reveal" style="transition-delay: 0.36s">
                             <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" aria-label="Dribbble-Profil von Maik">
                                 <svg class="hero__socials-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-dribbble"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 3.6c5 6 7 10.5 7.5 16.2" /><path d="M6.4 19c3.5 -3.5 6 -6.5 14.5 -6.4" /><path d="M3.1 10.75c5 0 9.814 -.38 15.314 -5" /></svg>
                             </a>
                         </li>
-                        <li>
+                        <li class="reveal" style="transition-delay: 0.48s">
                             <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn-Profil von Maik">
                                 <svg class="hero__socials-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /></svg>
                             </a>
                         </li>
-                        <li>
+                        <li class="reveal" style="transition-delay: 0.60s">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram-Profil von Maik">
                                 <svg class="hero__socials-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
                             </a>
                         </li>
-                        <li>
+                        <li class="reveal" style="transition-delay: 0.72s">
                             <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" aria-label="Spotify-Profil von Maik">
                                 <svg class="hero__socials-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-spotify"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M8 11.973c2.5 -1.473 5.5 -.973 7.5 .527" /><path d="M9 15c1.5 -1 4 -1 5 .5" /><path d="M7 9c2 -1 6 -2 10 .5" /></svg>
                             </a>
@@ -72,11 +76,11 @@
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="projects__title">Some good stuff,<br>
+                <h2 class="projects__title reveal">Some good stuff,<br>
                     <span class="text-highlighted">straight out the oven.</span>
                 </h2>
                 <ul class="projects__list">
-                    <li>
+                    <li class="reveal" style="transition-delay: 0.12s">
                         <button type="button"
                                 class="project-card"
                                 commandfor="modal-urban-plant-club"
@@ -90,7 +94,7 @@
                             <span class="project-card__category">Mobile App Design</span>
                         </button>
                     </li>
-                    <li>
+                    <li class="reveal" style="transition-delay: 0.24s">
                         <button type="button"
                                 class="project-card"
                                 commandfor="modal-fleetbase"
@@ -104,7 +108,7 @@
                             <span class="project-card__category">UI Design für Unternehmenssoftware</span>
                         </button>
                     </li>
-                    <li>                
+                    <li class="reveal" style="transition-delay: 0.36s">                
                         <button type="button"
                                 class="project-card"
                                 commandfor="modal-overlook-hotel"
@@ -126,11 +130,11 @@
 
         <section id="career" class="career">
             <div class="container">
-                <h2 class="career__title">Started from the bottom,<br>
+                <h2 class="career__title reveal">Started from the bottom,<br>
                     <span class="text-highlighted">now I'm here.</span>
                 </h2>
                 <div class="career__list">
-                    <div class="career__group">
+                    <div class="career__group reveal" style="transition-delay: 0.12s">
                         <h3 class="career__group-title">Beruflicher Werdegang</h3>
                         <dl class="career__entries">
                             <dt class="career__date">seit 07 / 2019</dt>
@@ -141,7 +145,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="career_group">
+                    <div class="career__group reveal" style="transition-delay: 0.24s">
                         <h3 class="career__group-title">Ausbildung & Studium</h3>
                         <dl class="career__entries">
                             <dt class="career__date">seit 01 / 2021</dt>
@@ -156,7 +160,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="career_group">
+                    <div class="career__group reveal" style="transition-delay: 0.36s">
                         <h3 class="career__group-title">Praktische Erfahrungen</h3>
                         <dl class="career__entries">
                             <dt class="career__date">seit 01 / 2026</dt>

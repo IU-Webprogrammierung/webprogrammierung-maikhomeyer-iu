@@ -5,6 +5,7 @@ async function init() {
     initNavigation();
     initScroll();
     initThemeToggle();
+    initReveal();
 }
 
 async function loadComponent(selector, path) {
@@ -92,4 +93,30 @@ function updateToggleState(toggle) {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     toggle.setAttribute('aria-pressed', isDark);
     toggle.setAttribute('aria-label', isDark ? 'Zum hellen Farbschema wechseln' : 'Zum dunklen Farbschema wechseln');
+}
+
+function initReveal() {
+    const heroReveals = document.querySelectorAll('.hero .reveal');
+    
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            heroReveals.forEach(el => el.classList.add('reveal--visible'));
+        });
+    });
+
+    const otherReveals = document.querySelectorAll('.reveal:not(.hero .reveal)');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal--visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    otherReveals.forEach(el => observer.observe(el));
 }
