@@ -1229,6 +1229,7 @@ svg {
     img {
         width: 100%;
         border-radius: var(--border-radius-sm);
+        background: var(--color-background-secondary);
     }
 
     @media (min-width: 640px) {
