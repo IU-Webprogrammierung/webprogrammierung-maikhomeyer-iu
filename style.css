@@ -233,6 +233,7 @@ svg {
 ::selection {
     background: var(--color-accent);
     color: white;
+    opacity: 1;
 }
 
 
