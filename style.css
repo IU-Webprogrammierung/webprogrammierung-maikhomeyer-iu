@@ -245,6 +245,12 @@ svg {
     opacity: 1;
 }
 
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: 2rem;
+}
+
 
 /* REVEAL */
 
@@ -290,12 +296,13 @@ svg {
 
 .skip-link {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0.5rem;
+    left: 0.5rem;
     padding: 0.5rem 1rem;
     background: var(--color-text);
     color: var(--color-background-primary);
-    transform: translateY(-101%);
+    font-weight: 500;
+    transform: translateY(-150%);
     transition: transform 0.2s;
 
     &:focus {
@@ -386,6 +393,10 @@ svg {
 
     &:active {
         transform: scale(0.9);
+    }
+
+    &:focus-visible {
+        border-radius: 0.5rem;
     }
 
     @media (hover: hover) {
@@ -836,7 +847,7 @@ svg {
 }
 
 .projects__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
 
     @media (min-width: 640px) {
         margin-bottom: 3rem;
@@ -850,7 +861,7 @@ svg {
 .projects__list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
 
     @media (min-width: 640px) {
         grid-template-columns: 1fr 1fr;
@@ -868,9 +879,14 @@ svg {
     width: 100%;
     text-align: left;
     transition: transform 0.24s cubic-bezier(0, 0, 0.5, 1);
+    padding-bottom: 0.5rem;
 
     &:active {
         transform: scale(1);
+    }
+
+    &:focus-visible {
+        border-radius: 2rem 2rem 1rem 1rem;
     }
 
     @media (hover: hover) {
@@ -908,7 +924,7 @@ svg {
 }
 
 .career__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 
     @media (min-width: 640px) {
         margin-bottom: 3rem;
@@ -1051,6 +1067,10 @@ svg {
         transform: scale(0.9);
     }
 
+    &:focus-visible {
+        outline-color: white;
+    }
+
     svg {
         width: 1.375rem;
         height: 1.375rem;
@@ -1074,6 +1094,12 @@ svg {
 }
 
 .site-footer__info {
+    a {
+        &:focus-visible {
+            outline-color: white;
+            border-radius: 0.25rem;
+        }
+    }
     @media (hover: hover) {
         a:hover {
             text-decoration: underline;
@@ -1094,10 +1120,13 @@ svg {
     border: 4px solid transparent;
     background: rgba(0, 0, 0, 0.08);
     transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1);
-    ;
 
     &:active {
         transform: scale(0.9);
+    }
+
+    &:focus-visible {
+        outline-color: white;
     }
 
     svg {
