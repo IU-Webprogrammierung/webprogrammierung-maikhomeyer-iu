@@ -72,7 +72,7 @@
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'Satoshi', system-ui, sans-serif;
     --font-size: 1.125rem;
-    --header-height: 6rem;
+    --header-height: 4rem;
 
     --color-background-primary: #fff;
     --color-background-secondary: rgba(0,0,0,0.04);
@@ -97,6 +97,7 @@
     @media (min-width: 640px) {
         --section-padding-x: 2.5rem;
         --section-padding-y: 5rem;
+        --header-height: 5rem;
     }
 
     @media (min-width: 1024px) {
@@ -628,14 +629,16 @@ svg {
 /* HERO SECTION */
 
 .hero {
-    padding: 0 var(--section-padding-x) var(--section-padding-y) var(--section-padding-x);
+    padding: var(--section-padding-y) var(--section-padding-x);
+    margin-top: -1.125rem;
     
     @media (min-width: 640px) {
-        padding: 5rem 1.5rem;
+        padding: var(--section-padding-y) 1.5rem;
+        margin-top: 0;
     }
 
     @media (min-width: 1024px) {
-        padding: 7.5rem 2rem;
+        padding: var(--section-padding-y) var(--section-padding-x);
     }
 }
 
