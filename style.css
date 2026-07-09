@@ -113,7 +113,7 @@
     --color-accent: #6871E9;
     --color-accent-surface: #5C64E5;
     --color-border-primary: rgba(255, 255, 255, 0.24);
-    --color-border-secondary: rgba(255, 255, 255, 0.16);
+    --color-border-secondary: rgba(255, 255, 255, 0.08);
     --color-border-inverse: rgba(0, 0, 0, 0.08);
     --color-surface-blur: rgba(15, 15, 15, 0.64);
     --color-backdrop: rgba(255, 255, 255, 0.08);
@@ -127,7 +127,7 @@
         --color-accent: #6871E9;
         --color-accent-surface: #5C64E5;
         --color-border-primary: rgba(255, 255, 255, 0.24);
-        --color-border-secondary: rgba(255, 255, 255, 0.16);
+        --color-border-secondary: rgba(255, 255, 255, 0.08);
         --color-border-inverse: rgba(0, 0, 0, 0.08);
         --color-surface-blur: rgba(15, 15, 15, 0.64);
         --color-backdrop: rgba(255, 255, 255, 0.08);
