@@ -195,11 +195,38 @@ Zusätzlich zu den Hover-States geben Buttons und interaktive Elemente auch **`:
 - Wirkt besonders auf Touch-Geräten wie ein "Klick"
 - Wird auf Nav-Links, Theme-Toggle, Contact-Button, Back-to-Top, Modal-Close, Social-Icons und Project-Cards konsistent angewendet
 
-### Mehrseitigkeit
+### Performance- und Bildoptimierung
 
-- Startseite (`index.html`) mit Ankerlinks zu den einzelnen Sektionen
-- Verlinkte Impressums-Unterseite (`impressum.html`) mit gültigen DDG-Pflichtangaben
-- **404-Fehlerseite** (`404.html`) mit eigenem Design, wird von GitHub Pages automatisch bei nicht existierenden URLs ausgeliefert – nutzt den rotierenden Text-Kreis als Wiedererkennungselement
+Als abschließender Optimierungsschritt wurden alle Bilder auf moderne Formate umgestellt und mit einem Fallback-System kombiniert. Statt eines einzelnen `<img>`-Elements liefern die Cases jetzt drei Varianten pro Bild aus:
+
+```html
+<picture>
+    <source srcset="assets/cases/urban/urban-plant-club-1.avif" type="image/avif">
+    <source srcset="assets/cases/urban/urban-plant-club-1.webp" type="image/webp">
+    <img src="assets/cases/urban/urban-plant-club-1.png"
+         alt="..."
+         loading="lazy"
+         decoding="async">
+</picture>
+```
+
+**Warum drei Formate?**
+
+- **AVIF** (AV1 Image File Format) bietet die beste Kompression und erzeugt bei vergleichbarer Qualität die kleinsten Dateien. Browser-Support liegt in 2026 bei rund 95 %.
+- **WebP** ist der ausgereiftere Standard mit über 98 % Browser-Support und schnellerem Decoding – ideal als Fallback für ältere Browser.
+- **PNG/JPEG** bleibt als universeller Fallback für alle Browser, die keines der modernen Formate unterstützen.
+
+**Konkrete Ersparnis bei diesem Projekt:**
+
+Alle PNG und JPEG Bilder hatten zusammen eine Größe von rund **4,4 MB**. Die AVIF-Versionen derselben Bilder kommen auf **613 KB** – eine Reduktion von **etwa 86 %** bei visuell identischer Qualität. Bei einer Portfolio-Seite mit vielen Screenshots macht sich das im Ladeverhalten deutlich bemerkbar, insbesondere auf mobilen Verbindungen.
+
+**Zusätzliche Performance-Attribute:**
+
+- **`loading="lazy"`** an allen Bildern außerhalb des ersten Viewports (Modal-Galerien, Case-Teaser). Damit werden die Bilder erst geladen, wenn sie in die Nähe des sichtbaren Bereichs scrollen – oder bei Modal-Galerien erst beim Öffnen des Modals.
+- **`decoding="async"`** entkoppelt das Dekodieren der Bilder vom Rendering-Thread und verhindert kurze Ruckler beim Laden.
+- **`fetchpriority="high"`** am Hero-Profilbild signalisiert dem Browser, dass dieses Bild für das erste sichtbare Rendering wichtig ist.
+
+Perspektivisch ermöglicht dieser Aufbau, für AVIF und WebP hochauflösendere Versionen zu hinterlegen, ohne dass Nutzer:innen mit älteren Browsern die großen PNG-Dateien laden müssen – jede Variante kann unabhängig optimiert werden.
 
 ## Erkenntnisse und Herausforderungen
 

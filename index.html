@@ -39,7 +39,13 @@
                             </text>
                         </svg>
                     </div>
-                    <img src="assets/profil.jpg" alt="Porträt von Maik">
+                    <picture>
+                        <source srcset="assets/profil.avif" type="image/avif">
+                        <source srcset="assets/profil.webp" type="image/webp">
+                        <img src="assets/profil.jpg" 
+                            alt="Porträt von Maik"
+                            fetchpriority="high">
+                    </picture>
                 </div>
                 <div class="hero__content">
                     <h1 class="hero__title reveal" style="transition-delay: 0.12s">
@@ -86,10 +92,16 @@
                                 commandfor="modal-urban-plant-club"
                                 command="show-modal"
                                 aria-label="Projektdetails zu Urban Plant Club öffnen">
-                            <img class="project-card__image"
-                                src="assets/cases/urban/case-teaser-urban.png"
-                                alt="Screenshots aus dem Projekt 'Urban Plant Club'"
-                                aria-hidden="true">
+                            <picture>
+                                <source srcset="assets/cases/urban/case-teaser-urban.avif" type="image/avif">
+                                <source srcset="assets/cases/urban/case-teaser-urban.webp" type="image/webp">
+                                <img class="project-card__image"
+                                    src="assets/cases/urban/case-teaser-urban.png"
+                                    alt="Screenshots aus dem Projekt 'Urban Plant Club'"
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
                             <span class="project-card__title">Urban Plant Club</span>
                             <span class="project-card__category">Mobile App Design</span>
                         </button>
@@ -100,10 +112,16 @@
                                 commandfor="modal-fleetbase"
                                 command="show-modal"
                                 aria-label="Projektdetails zu FleetBase öffnen">
-                            <img class="project-card__image"
-                                src="assets/cases/fleetbase/case-teaser-fleetbase.png" 
-                                alt="Screenshots aus dem Projekt 'FleetBase'"
-                                aria-hidden="true">
+                            <picture>
+                                <source srcset="assets/cases/fleetbase/case-teaser-fleetbase.avif" type="image/avif">
+                                <source srcset="assets/cases/fleetbase/case-teaser-fleetbase.webp" type="image/webp">
+                                <img class="project-card__image"
+                                    src="assets/cases/fleetbase/case-teaser-fleetbase.png" 
+                                    alt="Screenshots aus dem Projekt 'FleetBase'"
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
                             <span class="project-card__title">FleetBase</span>
                             <span class="project-card__category">UI Design für Unternehmenssoftware</span>
                         </button>
@@ -114,10 +132,16 @@
                                 commandfor="modal-overlook-hotel"
                                 command="show-modal"
                                 aria-label="Projektdetails zu Overlook Hotel öffnen">
-                            <img class="project-card__image"
-                                src="assets/cases/overlook/case-teaser-overlook.png" 
-                                alt="Screenshots aus dem Projekt 'Overlook Hotel'"
-                                aria-hidden="true">
+                            <picture>
+                                <source srcset="assets/cases/overlook/case-teaser-overlook.avif" type="image/avif">
+                                <source srcset="assets/cases/overlook/case-teaser-overlook.webp" type="image/webp">
+                                <img class="project-card__image"
+                                    src="assets/cases/overlook/case-teaser-overlook.png" 
+                                    alt="Screenshots aus dem Projekt 'Overlook Hotel'"
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
                             <span class="project-card__title">Overlook Hotel</span>
                             <span class="project-card__category">Responsive Webdesign</span>
                         </button>
@@ -227,13 +251,27 @@
 
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/urban/urban-plant-club-1.png" alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone">
+                        <picture>
+                            <source srcset="assets/cases/urban/urban-plant-club-1.avif" type="image/avif">
+                            <source srcset="assets/cases/urban/urban-plant-club-1.webp" type="image/webp">
+                            <img src="assets/cases/urban/urban-plant-club-1.png" 
+                                alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
 
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/urban/urban-plant-club-2.png" alt="Startseite der Urban Plant Club App">
+                        <picture>
+                            <source srcset="assets/cases/urban/urban-plant-club-2.avif" type="image/avif">
+                            <source srcset="assets/cases/urban/urban-plant-club-2.webp" type="image/webp">
+                            <img src="assets/cases/urban/urban-plant-club-2.png" 
+                                alt="Startseite der Urban Plant Club App"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
 
@@ -277,22 +315,50 @@
             <ul class="modal__gallery">
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/fleetbase/fleetbase-1.png" alt="Komponenten aus dem Designsystem von FleetBase">
+                        <picture>
+                            <source srcset="assets/cases/fleetbase/fleetbase-1.avif" type="image/avif">
+                            <source srcset="assets/cases/fleetbase/fleetbase-1.webp" type="image/webp">
+                            <img src="assets/cases/fleetbase/fleetbase-1.png" 
+                                alt="Komponenten aus dem Designsystem von FleetBase"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/fleetbase/fleetbase-2.png" alt="Desktop Übersicht aller Testfahrzeuge aus der Sicht eines Koordinators">
+                        <picture>
+                            <source srcset="assets/cases/fleetbase/fleetbase-2.avif" type="image/avif">
+                            <source srcset="assets/cases/fleetbase/fleetbase-2.webp" type="image/webp">
+                            <img src="assets/cases/fleetbase/fleetbase-2.png" 
+                                alt="Desktop Übersicht aller Testfahrzeuge aus der Sicht eines Koordinators"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
                     <figure>
-                        <img src="assets/cases/fleetbase/fleetbase-3.png" alt="Tablet Übersicht aller Testfahrten aus der Sicht eines Prüfers">
+                        <picture>
+                            <source srcset="assets/cases/fleetbase/fleetbase-3.avif" type="image/avif">
+                            <source srcset="assets/cases/fleetbase/fleetbase-3.webp" type="image/webp">
+                            <img src="assets/cases/fleetbase/fleetbase-3.png" 
+                                alt="Tablet Übersicht aller Testfahrten aus der Sicht eines Prüfers"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
                     <figure>
-                        <img src="assets/cases/fleetbase/fleetbase-4.png" alt="Tablet Ansicht der Mängelerfassung aus der Sicht eines Prüfers">
+                        <picture>
+                            <source srcset="assets/cases/fleetbase/fleetbase-4.avif" type="image/avif">
+                            <source srcset="assets/cases/fleetbase/fleetbase-4.webp" type="image/webp">
+                            <img src="assets/cases/fleetbase/fleetbase-4.png" 
+                                alt="Tablet Ansicht der Mängelerfassung aus der Sicht eines Prüfers"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
             </ul>
@@ -334,37 +400,86 @@
             <ul class="modal__gallery">
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-1.png" alt="Startseite des Overlook Hotel">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-1.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-1.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-1.png" 
+                                alt="Startseite des Overlook Hotel"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-2.png" alt="Moodboard für das Projekt">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-2.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-2.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-2.png" 
+                                alt="Moodboard für das Projekt"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-3.png" alt="Scribbles für die Startseite">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-3.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-3.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-3.png" 
+                                alt="Scribbles für die Startseite"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-4.png" alt="Wireframes von der Startseite">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-4.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-4.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-4.png" 
+                                alt="Wireframes von der Startseite"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-5.png" alt="Irrgarten Sektion auf der Startseite">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-5.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-5.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-5.png" 
+                                alt="Irrgarten Sektion auf der Startseite"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-6.png" alt="Bewertungen des Hotels auf der Startseite">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-6.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-6.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-6.png" 
+                                alt="Bewertungen des Hotels auf der Startseite"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
                     <figure>
-                        <img src="assets/cases/overlook/overlook-7.png" alt="Teaser-Kachel für die Bar des Hotels">
+                        <picture>
+                            <source srcset="assets/cases/overlook/overlook-7.avif" type="image/avif">
+                            <source srcset="assets/cases/overlook/overlook-7.webp" type="image/webp">
+                            <img src="assets/cases/overlook/overlook-7.png" 
+                                alt="Interface Komponenten auf der Detailseite eines Zimmers"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
                     </figure>
                 </li>
             </ul>
