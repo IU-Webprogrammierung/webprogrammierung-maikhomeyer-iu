@@ -86,7 +86,27 @@
                     <span class="text-highlighted">straight out the oven.</span>
                 </h2>
                 <ul class="projects__list">
-                    <li class="reveal" style="transition-delay: 0.12s">
+                    <li class="reveal" style="transition-delay: 0.12s">                
+                        <button type="button"
+                                class="project-card"
+                                commandfor="modal-lotto"
+                                command="show-modal"
+                                aria-label="Projektdetails zu LOTTO.de App öffnen">
+                            <picture>
+                                <source srcset="assets/cases/lotto/case-teaser-lotto.avif" type="image/avif">
+                                <source srcset="assets/cases/lotto/case-teaser-lotto.webp" type="image/webp">
+                                <img class="project-card__image"
+                                    src="assets/cases/lotto/case-teaser-lotto.png" 
+                                    alt="Screenshots aus dem Projekt 'Lotto.de App'"
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
+                            <span class="project-card__title">LOTTO.de App</span>
+                            <span class="project-card__category">Mobile App Design</span>
+                        </button>
+                    </li>
+                    <li class="reveal" style="transition-delay: 0.24s">
                         <button type="button"
                                 class="project-card"
                                 commandfor="modal-urban-plant-club"
@@ -106,7 +126,7 @@
                             <span class="project-card__category">Mobile App Design</span>
                         </button>
                     </li>
-                    <li class="reveal" style="transition-delay: 0.24s">
+                    <li class="reveal" style="transition-delay: 0.36s">
                         <button type="button"
                                 class="project-card"
                                 commandfor="modal-fleetbase"
@@ -126,7 +146,7 @@
                             <span class="project-card__category">UI Design für Unternehmenssoftware</span>
                         </button>
                     </li>
-                    <li class="reveal" style="transition-delay: 0.36s">                
+                    <li class="reveal" style="transition-delay: 0.48s">                
                         <button type="button"
                                 class="project-card"
                                 commandfor="modal-overlook-hotel"
@@ -144,26 +164,6 @@
                             </picture>
                             <span class="project-card__title">Overlook Hotel</span>
                             <span class="project-card__category">Responsive Webdesign</span>
-                        </button>
-                    </li>
-                    <li class="reveal" style="transition-delay: 0.36s">                
-                        <button type="button"
-                                class="project-card"
-                                commandfor="modal-lotto"
-                                command="show-modal"
-                                aria-label="Projektdetails zu LOTTO.de App öffnen">
-                            <picture>
-                                <source srcset="assets/cases/overlook/case-teaser-overlook.avif" type="image/avif">
-                                <source srcset="assets/cases/overlook/case-teaser-overlook.webp" type="image/webp">
-                                <img class="project-card__image"
-                                    src="assets/cases/overlook/case-teaser-overlook.png" 
-                                    alt="Screenshots aus dem Projekt 'Overlook Hotel'"
-                                    aria-hidden="true"
-                                    loading="lazy"
-                                    decoding="async">
-                            </picture>
-                            <span class="project-card__title">LOTTO.de App</span>
-                            <span class="project-card__category">Mobile App Design</span>
                         </button>
                     </li>
                 </ul>
@@ -554,12 +554,31 @@
 
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <picture>
-                            <img src="assets/cases/lotto/lotto-2.png" 
-                                alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone"
-                                loading="lazy"
-                                decoding="async">
-                        </picture>
+                        <div class="theme-slider" style="--position: 50%">
+                            <picture class="theme-slider__base">
+                                
+                                <img src="assets/cases/lotto/lotto-2-dark.png" 
+                                    alt="Screen der Lotto-App im Darkmode"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
+                            <picture class="theme-slider__overlay">
+                                
+                                <img src="assets/cases/lotto/lotto-2-light.png" 
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
+                            <input type="range" 
+                                min="0" 
+                                max="100" 
+                                value="50" 
+                                class="theme-slider__input"
+                                aria-label="Vergleich zwischen Light- und Darkmode">
+                            <div class="theme-slider__handle" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grip-vertical"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M8 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M8 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M14 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M14 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M14 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+                            </div>
+                        </div>
                     </figure>
                 </li>
 

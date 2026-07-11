@@ -6,6 +6,7 @@ async function init() {
     initScroll();
     initThemeToggle();
     initReveal();
+    initThemeSliders();
 }
 
 async function loadComponent(selector, path) {
@@ -128,4 +129,16 @@ function initReveal() {
     });
     
     otherReveals.forEach(el => observer.observe(el));
+}
+
+function initThemeSliders() {
+    const sliders = document.querySelectorAll('.theme-slider');
+    
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.theme-slider__input');
+        
+        input.addEventListener('input', () => {
+            slider.style.setProperty('--position', input.value + '%');
+        });
+    });
 }
