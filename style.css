@@ -76,13 +76,13 @@
 
     --color-background-primary: #fff;
     --color-background-secondary: rgba(0, 0, 0, 0.04);
+    --color-background-inverse: #0f0f0f;
     --color-text: #000;
     --color-accent: #FF4E5F;
     --color-accent-surface: #FF4E5F;
     --color-accent-hover: color-mix(in lch, var(--color-accent), transparent 88%);
     --color-border-primary: rgba(0, 0, 0, 0.16);
     --color-border-secondary: rgba(0, 0, 0, 0.08);
-    --color-border-inverse: rgba(255, 255, 255, 0.12);
 
     --color-surface-blur: rgba(255, 255, 255, 0.64);
     --backdrop-blur: saturate(180%) blur(20px);

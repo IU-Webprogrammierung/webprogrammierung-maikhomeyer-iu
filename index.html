@@ -146,6 +146,26 @@
                             <span class="project-card__category">Responsive Webdesign</span>
                         </button>
                     </li>
+                    <li class="reveal" style="transition-delay: 0.36s">                
+                        <button type="button"
+                                class="project-card"
+                                commandfor="modal-lotto"
+                                command="show-modal"
+                                aria-label="Projektdetails zu LOTTO.de App öffnen">
+                            <picture>
+                                <source srcset="assets/cases/overlook/case-teaser-overlook.avif" type="image/avif">
+                                <source srcset="assets/cases/overlook/case-teaser-overlook.webp" type="image/webp">
+                                <img class="project-card__image"
+                                    src="assets/cases/overlook/case-teaser-overlook.png" 
+                                    alt="Screenshots aus dem Projekt 'Overlook Hotel'"
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
+                            <span class="project-card__title">LOTTO.de App</span>
+                            <span class="project-card__category">Mobile App Design</span>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -482,6 +502,89 @@
                         </picture>
                     </figure>
                 </li>
+            </ul>
+        </article>
+
+    </dialog>
+
+     <!-- MODAL: LOTTO.de APP -->
+
+     <dialog id="modal-lotto"
+             class="modal"
+             aria-labelledby="modal-lotto-title"
+             closedby="any">
+
+        <article class="modal__content">
+
+            <button type="button"
+                    class="modal__close"
+                    commandfor="modal-lotto"
+                    command="close"
+                    aria-label="Projektdetails schließen"
+                    autofocus>
+                <span aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+                </span>
+            </button>
+
+            <header class="modal__header">
+                <p class="modal__category">Mobile App Design</p>
+                <h3 id="modal-lotto-title" class="modal__title">LOTTO.de App</h3>
+            </header>
+
+            <p class="modal__description">Für Lotto.de entstand ein plattformübergreifendes App-Design, das die bestehende Website in ein natives Mobile-Erlebnis überführt. Nutzer:innen können Spielscheine für verschiedene Lotterien ausfüllen, Ziehungsergebnisse einsehen und physische Lottoscheine per Scan auf Gewinne prüfen. Zu meinen Aufgaben gehörten: die Konzeption der Nutzerflows, die visuelle Ausgestaltung sowie der Aufbau eines umfassenden Designsystems, das die produktspezifischen Corporate Designs aller Lotterien konsistent abbildet, die WCAG-AA-Kontrastrichtlinien erfüllt und einen Light- sowie Darkmode ermöglicht. Zum wurden Rive Animationen für das Onboarding erstellt. Die App befindet sich aktuell noch in der Entwicklungsphase.</p>
+
+            <ul class="modal__links">
+                <li><a href="https://lotto.de" class="modal__link" target="_blank" rel="noopener noreferrer">Website aufrufen</a></li>
+                <li class="modal__links-meta">Tools: Figma, Rive</li>
+            </ul>
+
+            <ul class="modal__gallery">
+
+                <li class="modal__gallery-item modal__gallery-item--full">
+                    <figure>
+                        <picture>
+                            <img src="assets/cases/lotto/lotto-1.png" 
+                                alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
+                    </figure>
+                </li>
+
+                <li class="modal__gallery-item modal__gallery-item--full">
+                    <figure>
+                        <picture>
+                            <img src="assets/cases/lotto/lotto-2.png" 
+                                alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
+                    </figure>
+                </li>
+
+                <li class="modal__gallery-item modal__gallery-item--half">
+                    <figure>
+                        <picture>
+                            <img src="assets/cases/lotto/lotto-3.png" 
+                                alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
+                    </figure>
+                </li>
+
+                <li class="modal__gallery-item modal__gallery-item--half">
+                    <figure>
+                        <picture>
+                            <img src="assets/cases/lotto/lotto-4.png" 
+                                alt="Darstellung des Loading-Screens sowie der Startseite der Urban Plant Club App auf einem iPhone"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
+                    </figure>
+                </li>
+
             </ul>
         </article>
 
