@@ -148,14 +148,9 @@ function initFrameLoop() {
         modal.addEventListener('toggle', async (e) => {
             if (e.newState !== 'open') return;
             
+            // Alle Bilder tatsächlich dekodieren
             await Promise.all(
-                [...images].map(img => {
-                    if (img.complete) return Promise.resolve();
-                    return new Promise(resolve => {
-                        img.addEventListener('load', resolve, { once: true });
-                        img.addEventListener('error', resolve, { once: true });
-                    });
-                })
+                [...images].map(img => img.decode().catch(() => {}))
             );
             
             frames.forEach(frame => {
