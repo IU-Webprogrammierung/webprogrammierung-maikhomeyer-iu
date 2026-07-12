@@ -6,6 +6,7 @@ async function init() {
     initScroll();
     initThemeToggle();
     initReveal();
+    initFrameLoop();
 }
 
 async function loadComponent(selector, path) {
@@ -128,4 +129,38 @@ function initReveal() {
     });
     
     otherReveals.forEach(el => observer.observe(el));
+}
+
+function initFrameLoop() {
+    const loops = document.querySelectorAll('.frame-loop');
+    
+    loops.forEach(loop => {
+        const modal = loop.closest('dialog');
+        if (!modal) return;
+        
+        const frames = loop.querySelectorAll('.frame-loop__frame');
+        const images = loop.querySelectorAll('img');
+        
+        frames.forEach(frame => {
+            frame.style.animationPlayState = 'paused';
+        });
+        
+        modal.addEventListener('toggle', async (e) => {
+            if (e.newState !== 'open') return;
+            
+            await Promise.all(
+                [...images].map(img => {
+                    if (img.complete) return Promise.resolve();
+                    return new Promise(resolve => {
+                        img.addEventListener('load', resolve, { once: true });
+                        img.addEventListener('error', resolve, { once: true });
+                    });
+                })
+            );
+            
+            frames.forEach(frame => {
+                frame.style.animationPlayState = 'running';
+            });
+        });
+    });
 }
