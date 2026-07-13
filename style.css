@@ -155,9 +155,9 @@ body {
     color: var(--color-text);
 }
 
-html:has(dialog[open]),
-body:has(dialog[open]) {
+html.is-modal-open {
     overflow: hidden;
+    padding-right: var(--scrollbar-width, 0);
 }
 
 main {
@@ -1156,28 +1156,76 @@ svg {
     height: 100%;
     max-width: none;
     max-height: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background: var(--color-background-primary);
     color: var(--color-text);
     overflow-y: auto;
     scrollbar-width: none;
+    opacity: 0;
+    transition:
+        opacity 0.48s ease,
+        overlay 0.48s allow-discrete,
+        display 0.48s allow-discrete;
+
+    &[open] {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+            opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1) 0.12s,
+            transform 0.96s cubic-bezier(0.16, 1, 0.3, 1) 0.24s,
+            overlay 0.48s allow-discrete,
+            display 0.48s allow-discrete;
+    }
+
+    @starting-style {
+        &[open] {
+            opacity: 0;
+            transform: translateY(100vh);
+        }
+    }
 
     &::-webkit-scrollbar {
         display: none;
     }
 
     &::backdrop {
+        background: transparent;
+        transition:
+            background 0.48s ease,
+            backdrop-filter 0.48s ease,
+            overlay 0.48s allow-discrete,
+            display 0.48s allow-discrete;
+    }
+
+    &[open]::backdrop {
         background: var(--color-backdrop);
+        transition:
+            background 0.6s ease,
+            backdrop-filter 0.6s ease,
+            overlay 0.48s allow-discrete,
+            display 0.48s allow-discrete;
+
+        @starting-style {
+            background: transparent;
+        }
     }
 
     @media (min-width: 640px) {
         max-width: 1280px;
         background: transparent;
-        margin: 0 auto;
 
         &::backdrop {
+            backdrop-filter: none;
+        }
+
+        &[open]::backdrop {
             backdrop-filter: var(--backdrop-blur);
+
+            @starting-style {
+                background: transparent;
+                backdrop-filter: none;
+            }
         }
     }
 }

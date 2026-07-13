@@ -1,3 +1,8 @@
+document.documentElement.style.setProperty(
+    '--scrollbar-width',
+    (window.innerWidth - document.documentElement.clientWidth) + 'px'
+);
+
 async function init() {
     await loadComponent('.site-header', 'components/header.html');
     await loadComponent('.site-footer', 'components/footer.html');
@@ -8,6 +13,7 @@ async function init() {
     initReveal();
     initFrameLoop();
     initThemeImages();
+    initModalScrollLock();
 }
 
 async function loadComponent(selector, path) {
@@ -151,7 +157,6 @@ function initFrameLoop() {
         modal.addEventListener('toggle', async (e) => {
             if (e.newState !== 'open') return;
             
-            // Alle Bilder tatsächlich dekodieren
             await Promise.all(
                 [...images].map(img => img.decode().catch(() => {}))
             );
@@ -192,5 +197,23 @@ function updateThemeImages() {
         } else if (el.tagName === 'IMG') {
             el.src = newSrc;
         }
+    });
+}
+
+function initModalScrollLock() {
+    document.querySelectorAll('dialog').forEach(dialog => {
+        dialog.addEventListener('beforetoggle', (e) => {
+            if (e.newState === 'open') {
+                document.documentElement.classList.add('is-modal-open');
+            }
+        });
+        
+        dialog.addEventListener('toggle', (e) => {
+            if (e.newState === 'closed') {
+                setTimeout(() => {
+                    document.documentElement.classList.remove('is-modal-open');
+                }, 480);
+            }
+        });
     });
 }
