@@ -1200,12 +1200,17 @@ svg {
         transform: scale(0.9);
     }
 
+    svg {
+        transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1);
+    }
+
     @media (hover: hover) {
         &:hover {
             background: var(--color-accent-hover);
 
             svg {
                 color: var(--color-accent);
+                transform: rotate(90deg);
             }
         }
     }
