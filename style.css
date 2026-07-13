@@ -97,7 +97,7 @@
     @media (min-width: 640px) {
         --section-padding-x: 2.5rem;
         --section-padding-y: 6rem;
-        --header-height: 6rem;
+        --header-height: 5.125rem;
     }
 
     @media (min-width: 1024px) {
