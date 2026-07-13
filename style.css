@@ -1265,6 +1265,16 @@ svg {
     &:active {
         transform: scale(0.9);
     }
+    
+    &:focus-visible {
+        outline: none;
+        background: var(--color-accent-hover);
+
+        svg {
+            color: var(--color-accent);
+            transform: rotate(90deg);
+        }
+    }
 
     svg {
         transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1);
