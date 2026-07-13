@@ -786,6 +786,7 @@ svg {
 
 .hero__title-highlight {
     display: block;
+    font-style: italic;
     color: var(--color-accent);
 }
 
