@@ -162,6 +162,10 @@ body:has(dialog[open]) {
 
 main {
     padding-top: var(--header-height);
+
+    &:focus-visible {
+        outline: none;
+    }
 }
 
 p,
