@@ -138,11 +138,16 @@
                                 command="show-modal"
                                 aria-label="Projektdetails zu 3D Bühnenkonzept öffnen">
                             <picture>
-                                <source srcset="assets/cases/vhv/case-teaser-vhv.avif" type="image/avif">
-                                <source srcset="assets/cases/vhv/case-teaser-vhv.webp" type="image/webp">
+                                <source srcset="assets/cases/vhv/case-teaser-vhv.avif" 
+                                        data-src-dark="assets/cases/vhv/case-teaser-vhv-dark.avif"
+                                        type="image/avif">
+                                <source srcset="assets/cases/vhv/case-teaser-vhv.webp" 
+                                        data-src-dark="assets/cases/vhv/case-teaser-vhv-dark.webp"
+                                        type="image/webp">
                                 <img class="project-card__image"
                                     src="assets/cases/vhv/case-teaser-vhv.png"
-                                    alt="Screenshots aus dem Projekt '3D Bühenkonzept'"
+                                    data-src-dark="assets/cases/vhv/case-teaser-vhv-dark.png"
+                                    alt="Screenshots aus dem Projekt '3D Bühnenkonzept'"
                                     aria-hidden="true"
                                     loading="lazy"
                                     decoding="async">
