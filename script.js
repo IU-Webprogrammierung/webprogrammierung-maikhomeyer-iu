@@ -1,8 +1,3 @@
-document.documentElement.style.setProperty(
-    '--scrollbar-width',
-    (window.innerWidth - document.documentElement.clientWidth) + 'px'
-);
-
 async function init() {
     await loadComponent('.site-header', 'components/header.html');
     await loadComponent('.site-footer', 'components/footer.html');

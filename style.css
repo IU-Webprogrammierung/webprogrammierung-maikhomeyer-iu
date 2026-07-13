@@ -140,6 +140,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
     background: var(--color-background-primary);
+    scrollbar-gutter: stable;
 
     @media (prefers-reduced-motion: reduce) {
         scroll-behavior: auto;
@@ -157,7 +158,6 @@ body {
 
 html.is-modal-open {
     overflow: hidden;
-    padding-right: var(--scrollbar-width, 0);
 }
 
 main {
@@ -373,14 +373,6 @@ svg {
 
     @media (prefers-reduced-motion: reduce) {
         transition: none;
-    }
-}
-
-html.is-modal-open .site-header {
-    padding-right: calc(1rem + var(--scrollbar-width, 0));
-
-    @media (min-width: 640px) {
-        padding-right: calc(1.75rem + var(--scrollbar-width, 0));
     }
 }
 
