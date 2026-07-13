@@ -334,7 +334,7 @@ svg {
     align-items: center;
     font-size: 1.125rem;
     border-bottom: 1px solid transparent;
-    transition-property: padding, left, right;
+    transition-property: padding-top, padding-bottom, left, right;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
 
@@ -373,6 +373,14 @@ svg {
 
     @media (prefers-reduced-motion: reduce) {
         transition: none;
+    }
+}
+
+html.is-modal-open .site-header {
+    padding-right: calc(1rem + var(--scrollbar-width, 0));
+
+    @media (min-width: 640px) {
+        padding-right: calc(1.75rem + var(--scrollbar-width, 0));
     }
 }
 
@@ -1167,15 +1175,18 @@ svg {
     opacity: 0;
     transition:
         opacity 0.48s ease,
+        border-radius 0.48s cubic-bezier(0.16, 1, 0.3, 1),
         overlay 0.48s allow-discrete,
         display 0.48s allow-discrete;
 
     &[open] {
         opacity: 1;
+        border-radius: 0;
         transform: translateY(0);
         transition:
             opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1) 0.12s,
             transform 0.96s cubic-bezier(0.16, 1, 0.3, 1) 0.24s,
+            border-radius 0.96s cubic-bezier(0.16, 1, 0.3, 1) 0.56s,
             overlay 0.48s allow-discrete,
             display 0.48s allow-discrete;
     }
@@ -1184,6 +1195,7 @@ svg {
         &[open] {
             opacity: 0;
             transform: translateY(100vh);
+            border-radius: 2rem 2rem 0 0;
         }
     }
 
