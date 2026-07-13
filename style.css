@@ -646,12 +646,14 @@ svg {
     font-size: 1.125rem;
     transition: all .16s ease;
 
-    &:hover {
-        color: var(--color-accent);
-    }
-
     @media (min-width: 640px) {
         display: none;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-accent);
+        } 
     }
 }
 
@@ -1228,6 +1230,17 @@ svg {
             }
         }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+        .modal,
+        .modal::backdrop {
+            transition: none;
+        }
+        
+        .modal[open] {
+            transform: none;
+        }
+    }
 }
 
 .modal__close {
@@ -1379,7 +1392,7 @@ svg {
 .modal__gallery-item--full {
 
     img {
-        aspect-radio: 1152 / 688;
+        aspect-ratio: 1152 / 688;
     }
 
     @media (min-width: 640px) {
@@ -1389,7 +1402,7 @@ svg {
 
 .modal__gallery-item--half {
     img {
-        aspect-radio: 1128 / 1376;
+        aspect-ratio: 1128 / 1376;
     }
 }
 
@@ -1459,8 +1472,6 @@ svg {
     margin-bottom: 0;
 }
 
-
-/* 404 */
 
 /* NOT FOUND */
 
@@ -1571,7 +1582,7 @@ svg {
     color: var(--color-background-primary);
     font-weight: 500;
     border-radius: 999px;
-    transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1) opacity 0.16s cubic-bezier(0, 0, 0.5, 1);
+    transition: transform 0.16s cubic-bezier(0, 0, 0.5, 1), opacity 0.16s cubic-bezier(0, 0, 0.5, 1);
 
     &::before {
         content: '';
