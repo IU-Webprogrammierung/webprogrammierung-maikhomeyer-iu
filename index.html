@@ -93,10 +93,15 @@
                                 command="show-modal"
                                 aria-label="Projektdetails zu LOTTO.de App öffnen">
                             <picture>
-                                <source srcset="assets/cases/lotto/case-teaser-lotto.avif" type="image/avif">
-                                <source srcset="assets/cases/lotto/case-teaser-lotto.webp" type="image/webp">
+                                <source srcset="assets/cases/lotto/case-teaser-lotto.avif" 
+                                        data-src-dark="assets/cases/lotto/case-teaser-lotto-dark.avif"
+                                        type="image/avif">
+                                <source srcset="assets/cases/lotto/case-teaser-lotto.webp" 
+                                        data-src-dark="assets/cases/lotto/case-teaser-lotto-dark.webp"
+                                        type="image/webp">
                                 <img class="project-card__image"
                                     src="assets/cases/lotto/case-teaser-lotto.png" 
+                                    data-src-dark="assets/cases/lotto/case-teaser-lotto-dark.png"
                                     alt="Screenshots aus dem Projekt 'Lotto.de App'"
                                     aria-hidden="true"
                                     loading="lazy"

@@ -7,6 +7,7 @@ async function init() {
     initThemeToggle();
     initReveal();
     initFrameLoop();
+    initThemeImages();
 }
 
 async function loadComponent(selector, path) {
@@ -85,6 +86,8 @@ function toggleTheme() {
 
     const toggle = document.querySelector('.theme-toggle');
     if (toggle) updateToggleState(toggle);
+    
+    updateThemeImages();
 }
 
 applyTheme(getInitialTheme());
@@ -157,5 +160,37 @@ function initFrameLoop() {
                 frame.style.animationPlayState = 'running';
             });
         });
+    });
+}
+
+function initThemeImages() {
+    const elements = document.querySelectorAll('[data-src-dark]');
+    if (!elements.length) return;
+
+    // Ursprüngliche Werte als Light-Variante merken
+    elements.forEach(el => {
+        if (el.tagName === 'SOURCE') {
+            el.dataset.srcLight = el.srcset;
+        } else if (el.tagName === 'IMG') {
+            el.dataset.srcLight = el.src;
+        }
+    });
+
+    updateThemeImages();
+}
+
+function updateThemeImages() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const elements = document.querySelectorAll('[data-src-dark]');
+
+    elements.forEach(el => {
+        const newSrc = isDark ? el.dataset.srcDark : el.dataset.srcLight;
+        if (!newSrc) return;
+        
+        if (el.tagName === 'SOURCE') {
+            el.srcset = newSrc;
+        } else if (el.tagName === 'IMG') {
+            el.src = newSrc;
+        }
     });
 }
