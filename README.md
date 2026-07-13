@@ -5,7 +5,6 @@ Persönlicher Webauftritt mit Schwerpunkt auf semantischem HTML, Barrierefreihei
 ## Über das Projekt
 
 Die Website präsentiert mich als UX Designer und dient als zentrale Plattform für berufliche Bewerbungen. Sie ist als One-Pager mit den vier Sektionen "Über mich", "Projekte", "Werdegang" und "Kontakt" aufgebaut. Eine separate Impressums-Unterseite ergänzt den Webauftritt. Detailansichten der Projekte öffnen sich als Modale über der Startseite, ohne den Kontext zu verlassen.
-
 ## Technologie-Stack
 
 - **HTML** als semantische Grundstruktur
@@ -17,17 +16,19 @@ Die Website präsentiert mich als UX Designer und dient als zentrale Plattform f
 
 Die Website nutzt JavaScript für das Laden wiederverwendbarer Komponenten (Header & Footer). Sie muss daher über einen lokalen Webserver geöffnet werden – nicht direkt aus dem Dateisystem (`file://`).
 
+## Cases und Portfolio-Inhalt
+
+Die Auswahl der gezeigten Projekte wurde im Laufe der Umsetzung deutlich erweitert und um reale Projekte aus meiner Agenturarbeit ergänzt. Das Portfolio zeigt jetzt eine Mischung aus Studien- und Hochschulprojekten (Urban Plant Club, Overlook Hotel, FleetBase) und beruflichen Projekten für Auftraggeber wie enercity, VHV Versicherungen und Toto-Lotto Niedersachsen. Jeder Case hat eine eigene Detailansicht mit Beschreibung, Tool-Angaben, verlinkten Prototypen und einer Galerie aus Screenshots.
+
 ## Konzept und Wireframes
 
 Vor der Implementierung wurde ein umfassendes Konzept erstellt, das das responsive Verhalten, das Gestaltungsraster, die Sitemap, detaillierte Wireframes für Mobile, Tablet und Desktop sowie einen Styleguide zu Typografie, Farben und Komponenten-Patterns beschreibt. Dieses Konzept bildet die Grundlage für alle weiteren Umsetzungsschritte.
 
 ## Umgesetzte Features
 
-Die Features sind in der Reihenfolge dokumentiert, in der sie umgesetzt wurden – von der grundlegenden Struktur bis hin zu den finalen Interaktions-Details.
+### Fundament
 
-### Semantik und Struktur
-
-Der erste Schritt war der Aufbau der HTML-Struktur mit konsequent semantischem Markup:
+#### Semantik und Struktur
 
 - Verwendung nativer HTML5-Elemente (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`, `<nav>`, `<dialog>`)
 - Saubere Heading-Hierarchie ohne Sprünge
@@ -35,9 +36,7 @@ Der erste Schritt war der Aufbau der HTML-Struktur mit konsequent semantischem M
 - `<address>`-Element für die Impressums-Adresse
 - BEM-Notation für Klassen-Benennung (`block__element--modifier`) – sorgt für klare, konfliktfreie Selektoren
 
-### Barrierefreiheit (WCAG 2.1, WAI-ARIA)
-
-Bereits parallel zur Struktur wurde die Barrierefreiheit konsequent mitgedacht:
+#### Barrierefreiheit (WCAG 2.1, WAI-ARIA)
 
 - Skip-Link zum Hauptinhalt für Tastatur-Navigation
 - Aussagekräftige `aria-label`-Attribute auf interaktiven Elementen
@@ -51,19 +50,7 @@ Bereits parallel zur Struktur wurde die Barrierefreiheit konsequent mitgedacht:
 - Touch-Target-Mindestgröße von 44×44 px auf interaktiven Elementen
 - Logo-Link mit klarer Funktionsangabe für Screenreader
 
-### Modal-Steuerung mit nativer Dialog-API
-
-Für die Projekt-Detailansichten wurde das native `<dialog>`-Element genutzt – zusammen mit der modernen **Invoker Commands API**:
-
-- Steuerung über `commandfor` / `command`-Attribute – vollständig deklarativ ohne JavaScript
-- `closedby="any"` für intuitives Schließen via Backdrop-Klick oder Esc-Taste
-- Automatischer Focus-Trap durch native Browser-API
-- **Bleed-Scroll-Pattern** ab Tablet: Das Modal ist von der Höhe abhängig vom Inhalt, wird bei Bedarf am unteren Bildschirmrand abgeschnitten und scrollt als Ganzes; beim Scroll-Ende wird der Abstand zum Rand wieder sichtbar
-- Responsive Anpassung: vollflächig auf Mobile, mit Abstand zum Rand ab Tablet, mittig zentriert mit `max-width: 1280px` auf Desktop
-- Backdrop mit Backdrop-Filter (Blur und Abdunkelung) ab Tablet
-- Scrollbar ausgeblendet für sauberes visuelles Erscheinungsbild
-
-### Layout und Responsive Design
+#### Layout und Responsive Design
 
 Mobile-First-Ansatz: Basisstyles gelten für mobile Geräte, größere Bildschirme werden über Media Queries erweitert.
 
@@ -76,7 +63,23 @@ Mobile-First-Ansatz: Basisstyles gelten für mobile Geräte, größere Bildschir
 
 Layout-Techniken: Flexbox für eindimensionale Ausrichtungen (z. B. Navigation, Hero), CSS Grid für Karten-Listen (Projekte), tabellarische Strukturen (Werdegangs-Einträge auf Tablet/Desktop) und die Modal-Galerie.
 
-### Design-System mit Custom Properties
+### Design-System
+
+#### Moderne CSS-Architektur mit Nesting
+
+Das Stylesheet nutzt **natives CSS Nesting**, um Komponenten-Styles thematisch zu bündeln. Media Queries stehen direkt bei ihrer Komponente, was die Wartbarkeit deutlich erhöht:
+
+```css
+.hero__title {
+    font-size: 2.5rem;
+
+    @media (min-width: 1024px) {
+        font-size: 3.75rem;
+    }
+}
+```
+
+#### Design-Tokens mit Custom Properties
 
 Konsistentes Erscheinungsbild durch CSS Custom Properties (Variablen) in `:root`:
 
@@ -87,9 +90,7 @@ Konsistentes Erscheinungsbild durch CSS Custom Properties (Variablen) in `:root`
 - **Radien**: `--border-radius-md` und `--border-radius-sm` für konsistente Rundungen
 - **Dynamische Farbmischungen**: `color-mix()` für Hover-Overlays, die sich automatisch an die aktive Akzentfarbe anpassen
 
-Die Variablen bildeten von Anfang an die Basis – dadurch war später der Wechsel zwischen Light- und Darkmode ohne Umbauten in den einzelnen Regeln möglich.
-
-### Visuelle Gestaltung
+#### Visuelle Gestaltung
 
 Das Styling orientiert sich an Designsprachen moderner Tech-Produkte (Apple, Google, YouTube): klare Typografie, großzügige Abstände, durchgängig abgerundete Ecken sowie subtile Backdrop-Blur-Effekte für den schwebenden Header.
 
@@ -100,7 +101,70 @@ Das Styling orientiert sich an Designsprachen moderner Tech-Produkte (Apple, Goo
 - Konsistente Icon-Sprache durch Tabler Icons als Inline-SVG
 - Rotierender Text-Kreis im Hero-Bereich als visueller Anker
 
-### Navigation
+#### Light- und Darkmode
+
+Vollständiger Theme-Switch mit persistenter Speicherung:
+
+- **`data-theme`-Attribut** am `<html>`-Element steuert das aktive Theme
+- **Systempräferenz** wird via `prefers-color-scheme` initial übernommen
+- **User-Auswahl** wird im `localStorage` gespeichert und überschreibt die Systempräferenz
+- **Pill-Style Theme-Toggle** mit animiertem Thumb und Sun-/Moon-Icons (Tabler Icons)
+- Alle Farben werden über die zentralen Custom Properties gesteuert – ein Theme-Wechsel tauscht nur die Variablen-Werte, nicht die einzelnen Regeln
+- Eigene Accent-Farben pro Theme (Rot im Lightmode, Blau im Darkmode) für optimalen Kontrast
+
+### Interaktion und Animation
+
+#### Scroll-Reveal-Animationen
+
+Beim Laden und Scrollen erscheinen die Inhalte gestaffelt mit einer Fade-in- und Slide-up-Animation:
+
+- **Hero-Elemente** werden direkt nach dem Page-Load nacheinander eingeblendet (Bild → Titel → Text → Icons → Circle)
+- **Projekte, Werdegang und Footer** erscheinen erst beim Scrollen in den Viewport
+- **Umsetzung** über `IntersectionObserver` in JavaScript, der eine CSS-Klasse `reveal--visible` triggert
+- **Modifier-Variante** `reveal--scale` für Elemente, die statt eines Slide-Effekts skalieren sollen
+- **`prefers-reduced-motion`** wird respektiert: Alle Reveals starten sofort sichtbar, ohne Animation
+- **Staggered Delays** über Inline-`transition-delay`-Styles für feine Kontrolle pro Element
+
+#### Interaktions-Feedback
+
+Zusätzlich zu den Hover-States geben Buttons und interaktive Elemente auch **`:active`-Feedback**:
+
+- Kurze Skalierung auf `scale(0.9)` beim Drücken vermittelt ein taktiles Gefühl
+- Wirkt besonders auf Touch-Geräten wie ein "Klick"
+- Wird auf Nav-Links, Theme-Toggle, Contact-Button, Back-to-Top, Modal-Close, Social-Icons und Project-Cards konsistent angewendet
+
+#### Präzise Fokus-States
+
+Fokus-Ringe sind für die Tastatur-Bedienung essenziell, wirken aber auf Touch-Geräten oft störend – besonders wenn ein Button per `autofocus` gesetzt wird und der Ring ohne Zutun erscheint.
+
+Der Modal-Close-Button nutzt deshalb eine gezielte Media-Query-Kombination:
+
+```css
+.modal__close:focus-visible {
+    outline: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .modal__close:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 4px;
+    }
+}
+```
+
+Damit erscheint der Fokus-Ring nur auf Geräten mit präzisem Pointer (Maus, Trackpad) und Hover-Fähigkeit – also klassischen Desktop-Setups. Auf Touch-Geräten bleibt der Button visuell ruhig, obwohl er technisch weiterhin den Fokus bekommt.
+
+#### Farbliche Textauswahl
+
+Das native Browser-Verhalten der Textauswahl wurde an das Design-System angepasst:
+
+- Auf regulären Flächen: Akzentfarbe als Background, weißer Text
+- Auf Akzentflächen (Footer): invertiert – weißer Background, Akzent-Text
+- Umsetzung mit dem `::selection`-Pseudo-Element, kontextsensitiv gescoped
+
+### Komponenten
+
+#### Navigation
 
 - **Mobile**: Hamburger-Icon mit aria-gesteuertem Toggle, öffnet ein vollflächiges Menü-Overlay
 - **Tablet/Desktop**: Navigationspunkte ausgeschrieben, Theme-Toggle integriert
@@ -109,7 +173,30 @@ Das Styling orientiert sich an Designsprachen moderner Tech-Produkte (Apple, Goo
 - **Floating Pattern**: ab Tablet schwebt der Header mit Abstand zum Rand
 - **Smooth-Scroll** zu Sektions-Ankerlinks mit `scroll-padding-top`, damit Sektionen nicht hinter dem fixierten Header verschwinden
 
-### Komponenten-System
+#### Modal-Steuerung
+
+- Native `<dialog>`-Elemente für Projekt-Detailansichten
+- Steuerung über die **Invoker Commands API** (`commandfor` / `command`-Attribute) – vollständig deklarativ ohne JavaScript
+- `closedby="any"` für intuitives Schließen via Backdrop-Klick oder Esc-Taste
+- Automatischer Focus-Trap durch native Browser-API
+- **Bleed-Scroll-Pattern** ab Tablet: Das Modal ist von der Höhe abhängig vom Inhalt, wird bei Bedarf am unteren Bildschirmrand abgeschnitten und scrollt als Ganzes; beim Scroll-Ende wird der Abstand zum Rand wieder sichtbar
+- Responsive Anpassung: vollflächig auf Mobile, mit Abstand zum Rand ab Tablet, mittig zentriert mit `max-width: 1280px` auf Desktop
+- Backdrop mit Backdrop-Filter (Blur und Abdunkelung) ab Tablet
+- Scrollbar ausgeblendet für sauberes visuelles Erscheinungsbild
+
+**Öffnungs-Animation mit `@starting-style`:**
+
+Modale öffnen und schließen sich mit einer sanften, mehrstufigen Animation – inspiriert von Apple-Produktseiten:
+
+- **Backdrop** fadet zuerst ein (mit Blur ab Tablet), das Modal folgt mit leichtem Delay
+- **Slide-in von unten**: Auf Mobile fährt das Modal aus dem unteren Bildschirmrand hoch (`translateY(100vh)` → `0`)
+- **Border-Radius-Animation** (Mobile): Der obere Rand des Modals ist im Startzustand gerundet (`2rem 2rem 0 0`) und wird während des Hochfahrens auf `0` reduziert – ähnlich einem Sheet-Pattern aus nativen Apps
+- **Sanftes Ausblenden**: Beim Schließen fadet das Modal an seiner Position aus, ohne wieder herunter zu fahren – wirkt ruhiger
+- **`prefers-reduced-motion`** wird respektiert: Für betroffene Nutzer:innen laufen alle Animationen ohne Bewegung
+
+Umgesetzt mit der modernen CSS-Kombination aus `@starting-style` und `transition-behavior: allow-discrete`. Damit werden native `<dialog>`-Elemente animierbar, obwohl sie zwischen `display: none` und `display: block` wechseln – ohne JavaScript-Workarounds für den Zustandswechsel.
+
+#### Komponenten-System
 
 Header und Footer werden als wiederverwendbare HTML-Fragmente ausgelagert und per JavaScript dynamisch in die Seiten geladen:
 
@@ -118,7 +205,7 @@ Header und Footer werden als wiederverwendbare HTML-Fragmente ausgelagert und pe
 - Vorteil: Änderungen am Header oder Footer müssen nur an einer Stelle gepflegt werden
 - Hinweis: Erfordert die Ausführung über einen lokalen Webserver (siehe oben)
 
-### JavaScript-Architektur
+#### JavaScript-Architektur
 
 Der JavaScript-Code ist bewusst schlank gehalten und in klar getrennte Init-Funktionen organisiert. Da Header und Footer per `fetch()` nachgeladen werden, ist die Reihenfolge der Initialisierung entscheidend:
 
@@ -136,66 +223,9 @@ async function init() {
 
 **Wichtig:** Die Init-Funktionen für Navigation, Scroll-Handling und Theme-Toggle greifen alle auf Elemente **im Header** zu. Sie können daher erst laufen, wenn `loadComponent()` mit `await` abgeschlossen ist. Genauso muss `initReveal()` nach dem Footer-Loading laufen, damit die Reveal-Klassen dort auch beobachtet werden können. Ohne diese Reihenfolge würden die Selektoren ins Leere greifen.
 
-### Light- und Darkmode
+### Performance
 
-Vollständiger Theme-Switch mit persistenter Speicherung:
-
-- **`data-theme`-Attribut** am `<html>`-Element steuert das aktive Theme (skalierbarer als eine einzelne Class)
-- **Systempräferenz** wird via `prefers-color-scheme` initial übernommen
-- **User-Auswahl** wird im `localStorage` gespeichert und überschreibt die Systempräferenz
-- **Pill-Style Theme-Toggle** mit animiertem Thumb und Sun-/Moon-Icons (Tabler Icons)
-- Alle Farben werden über die zentralen Custom Properties gesteuert – ein Theme-Wechsel tauscht nur die Variablen-Werte, nicht die einzelnen Regeln
-
-### CSS Nesting als strukturelle Umstellung
-
-Auf Feedback des Tutors hin wurde das komplette Stylesheet auf **natives CSS Nesting** umgestellt (ohne Preprocessor wie SASS). Media Queries stehen jetzt direkt bei ihrer Komponente:
-
-```css
-.hero__title {
-    font-size: 2.5rem;
-
-    @media (min-width: 1024px) {
-        font-size: 3.75rem;
-    }
-}
-```
-
-**Vorteile:**
-- Alle Zustände eines Elements (Hover, Modifier, responsive Verhalten) an einem Ort
-- Deutlich weniger Kontext-Wechsel beim Lesen und Bearbeiten
-- Klarere BEM-Beziehungen zwischen Block, Element und Modifier
-
-Vorher waren die Media Queries in großen globalen Blöcken am Ende der Datei gesammelt – nach dem Refactor sind sie auf die jeweiligen Komponenten verteilt, was die Wartbarkeit erheblich verbessert.
-
-### Scroll-Reveal-Animationen
-
-Beim Laden und Scrollen erscheinen die Inhalte gestaffelt mit einer Fade-in- und Slide-up-Animation:
-
-- **Hero-Elemente** werden direkt nach dem Page-Load nacheinander eingeblendet (Bild → Titel → Text → Icons → Circle)
-- **Projekte, Werdegang und Footer** erscheinen erst beim Scrollen in den Viewport
-- **Umsetzung** über `IntersectionObserver` in JavaScript, der eine CSS-Klasse `reveal--visible` triggert
-- **Modifier-Variante** `reveal--scale` für Elemente, die statt eines Slide-Effekts skalieren sollen (z. B. der Text-Kreis mit zusätzlicher Rotation, der Footer)
-- **`prefers-reduced-motion`** wird respektiert: Alle Reveals starten sofort sichtbar, ohne Animation
-
-**Zu den Inline-Delays:** Die gestaffelten `transition-delay`-Werte wurden bewusst als Inline-Styles direkt im HTML gesetzt (z. B. `style="transition-delay: 0.2s"`). Zwar widerspricht das dem Prinzip der Trennung von Struktur und Präsentation, hier war es aber die pragmatischste Lösung. Die Alternative wäre gewesen, für jede Sektion `:nth-child`-Regeln zu schreiben. Inline-Delays halten die Zuordnung zwischen Element und Timing sichtbar am HTML und lassen sich schnell justieren, ohne im CSS suchen zu müssen.
-
-### Farbliche Textauswahl
-
-Das native Browser-Verhalten der Textauswahl wurde an das Design-System angepasst:
-
-- Auf regulären Flächen: Akzentfarbe als Background, weißer Text
-- Auf Akzentflächen (Footer): invertiert – weißer Background, Akzent-Text
-- Umsetzung mit dem `::selection`-Pseudo-Element, kontextsensitiv gescoped
-
-### Interaktions-Feedback
-
-Zusätzlich zu den Hover-States geben Buttons und interaktive Elemente auch **`:active`-Feedback**:
-
-- Kurze Skalierung auf `scale(0.9)` beim Drücken vermittelt ein taktiles Gefühl
-- Wirkt besonders auf Touch-Geräten wie ein "Klick"
-- Wird auf Nav-Links, Theme-Toggle, Contact-Button, Back-to-Top, Modal-Close, Social-Icons und Project-Cards konsistent angewendet
-
-### Performance- und Bildoptimierung
+#### Bildoptimierung
 
 Als abschließender Optimierungsschritt wurden alle Bilder auf moderne Formate umgestellt und mit einem Fallback-System kombiniert. Statt eines einzelnen `<img>`-Elements liefern die Cases jetzt drei Varianten pro Bild aus:
 
@@ -226,7 +256,28 @@ Alle PNG und JPEG Bilder hatten zusammen eine Größe von rund **4,4 MB**. Die A
 - **`decoding="async"`** entkoppelt das Dekodieren der Bilder vom Rendering-Thread und verhindert kurze Ruckler beim Laden.
 - **`fetchpriority="high"`** am Hero-Profilbild signalisiert dem Browser, dass dieses Bild für das erste sichtbare Rendering wichtig ist.
 
-Perspektivisch ermöglicht dieser Aufbau, für AVIF und WebP hochauflösendere Versionen zu hinterlegen, ohne dass Nutzer:innen mit älteren Browsern die großen PNG-Dateien laden müssen – jede Variante kann unabhängig optimiert werden.
+#### Theme-abhängige Bild-Varianten
+
+Manche Screenshots aus den Cases wirkten je nach aktivem Farbschema unharmonisch – ein Screenshot im Lightmode fügte sich schlecht in eine dunkle Umgebung ein und umgekehrt. Damit das Gesamtbild stimmig bleibt, gibt es für ausgewählte Bilder eine Darkmode-Variante, die automatisch ausgeliefert wird.
+
+Die Umsetzung nutzt Data-Attribute am `<img>`- und `<source>`-Element:
+
+```html
+<picture>
+    <source srcset="assets/cases/lotto/lotto-6.avif" 
+            data-src-dark="assets/cases/lotto/lotto-6-dark.avif"
+            type="image/avif">
+    <source srcset="assets/cases/lotto/lotto-6.webp" 
+            data-src-dark="assets/cases/lotto/lotto-6-dark.webp"
+            type="image/webp">
+    <img src="assets/cases/lotto/lotto-6.png" 
+         data-src-dark="assets/cases/lotto/lotto-6-dark.png"
+         alt="..."
+         decoding="async">
+</picture>
+```
+
+Ein kleines JavaScript-Modul liest beim Seitenaufruf die aktuelle Theme-Einstellung aus, merkt sich die Light-URLs und tauscht bei jedem Theme-Wechsel die Bildquellen aus. Bilder ohne `data-src-dark` bleiben unangetastet – die Funktion greift also selektiv nur dort, wo es tatsächlich Sinn macht.
 
 ## Erkenntnisse und Herausforderungen
 
@@ -265,12 +316,32 @@ Die Scroll-Reveal-Animation nutzt `transform: translateY()` bzw. `scale()` als S
 
 Damit stören sich die Transform-Werte nicht mehr, weil sie auf unterschiedlichen Elementen sitzen.
 
+### Scrollbar-Sprung bei Modal-Öffnung
+
+Beim Öffnen eines Modals wurde per `overflow: hidden` das Scrollen der Seite blockiert. Auf Systemen mit sichtbarer Scrollbar (klassisches Desktop-Verhalten) verschwand dabei die Scrollbar – der Content sprang um deren Breite (ca. 15 px) nach rechts. Beim Schließen erschien sie wieder, und der Content sprang zurück.
+
+**Erster Ansatz:** Die Scrollbar-Breite per JavaScript berechnen und als `padding-right` am `<html>`- und Header-Element ausgleichen. Das funktionierte grundsätzlich, führte aber zu Folge-Problemen: Der Header musste zusätzlich kompensiert werden, die Header-Transition zappelte kurz, und in Browser-Emulationen wich das Ergebnis von der Realität ab.
+
+**Bessere Lösung:** Die CSS-Property `scrollbar-gutter: stable` am `<html>` reserviert dauerhaft Platz für die Scrollbar – auch wenn sie gerade nicht sichtbar ist. Damit gibt es beim Öffnen und Schließen von Modals nichts, was verrutschen könnte. Das komplette JavaScript-Kompensations-Konstrukt konnte wieder entfernt werden.
+
+**Lektion:** Es lohnt sich, komplizierte Workarounds zu hinterfragen. Eine einzige CSS-Property löste das, wofür vorher Berechnungen, Custom Properties und Media-Query-abhängige Padding-Regeln nötig waren.
+
+### Frame-Loop-Animation: Flackern und Ladezeiten
+
+Ein Case (VHV) zeigt eine animierte Bild-Sequenz, die zwischen 8 Screens durchcyclt. Umgesetzt als reine CSS-Animation mit gestackten `<picture>`-Elementen und `opacity`-Keyframes.
+
+**Herausforderung:** Beim ersten Durchlauf der Animation flackerten die Bilder sichtbar. Verschiedene Faktoren waren beteiligt:
+
+- Modal-Bilder wurden per `loading="lazy"` erst beim Öffnen geladen – die Animation startete parallel
+- Selbst mit `fetchpriority="high"` und `decoding="sync"` griff das Loading nicht immer schnell genug
+- Der Browser dekodiert Bilder beim ersten Rendern – 8 auf einmal überforderten die Rendering-Pipeline
+
+**Lösung:** Ein JavaScript-Fix pausiert die Animation initial (`animation-play-state: paused` im CSS) und startet sie erst, wenn das Modal geöffnet wird und alle 8 Bilder per `img.decode()` explizit dekodiert wurden. Die `decode()`-API ist stärker als das `load`-Event, weil sie nicht nur das Herunterladen abwartet, sondern auch das Fertig-Dekodieren.
+
+**Perspektivisch:** Eine solche Frame-Sequenz ist aufwendig in der Pflege (8 Bilder × 3 Formate = 24 Dateien pro Case). Ein Video wäre langfristig eleganter, insbesondere wenn zusätzlich Light-/Darkmode-Varianten benötigt werden – dann wären es 48 Bilder. Die Video-Route wurde für den ersten Anlauf verworfen, weil `<video>`-Elemente in Safari mit transparenten MP4s Probleme machten. Mit dem etablierten Theme-Wechsel-Mechanismus über Data-Attribute lässt sich das Konzept aber grundsätzlich auch auf `<video>`-Quellen übertragen.
+
 ## Git-Workflow
 
 - **Conventional Commits**: Atomare Commits mit klaren Type-Präfixen (`feat`, `fix`, `refactor`, `docs`, `chore`, `style`)
 - **Scopes** zur thematischen Einordnung (`nav`, `hero`, `projects`, `career`, `contact`, `footer`, `modal`, `styles`, `imprint`, `assets`)
 - **Tags zur Markierung der Projektphasen**: z. B. `v1.0-phase1` für die abgeschlossene Konzeptionsphase, `v2.0-phase2` für die abgeschlossene HTML/CSS-Phase
-
-## Status
-
-**Aktueller Stand: Website ist funktional vollständig und deployed.** Alle Kernfeatures sind umgesetzt: responsive Layout, Light-/Darkmode, Scroll-Reveal-Animationen, modale Projektansichten und barrierefreie Interaktionen. Der Code ist mit modernem CSS Nesting strukturiert. In Vorbereitung: finale Asset-Optimierung (WOFF2-Konvertierung der Schriften, Bild-Kompression) und Performance-Feinschliff.
