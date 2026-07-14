@@ -160,6 +160,10 @@ html.is-modal-open {
     overflow: hidden;
 }
 
+html:has(.site-nav__hamburger[aria-expanded="true"]) {
+    overflow: hidden;
+}
+
 main {
     padding-top: var(--header-height);
 
