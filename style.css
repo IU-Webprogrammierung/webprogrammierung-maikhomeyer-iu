@@ -1170,6 +1170,7 @@ svg {
         border-radius 0.48s cubic-bezier(0.16, 1, 0.3, 1),
         overlay 0.48s allow-discrete,
         display 0.48s allow-discrete;
+    will-change: transform, opacity;
 
     &[open] {
         opacity: 1;

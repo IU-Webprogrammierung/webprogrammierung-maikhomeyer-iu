@@ -9,6 +9,8 @@ async function init() {
     initFrameLoop();
     initThemeImages();
     initModalScrollLock();
+    initModalPreload();
+    
 }
 
 async function loadComponent(selector, path) {
@@ -209,6 +211,19 @@ function initModalScrollLock() {
                     document.documentElement.classList.remove('is-modal-open');
                 }, 480);
             }
+        });
+    });
+}
+
+function initModalPreload() {
+    document.querySelectorAll('dialog').forEach(dialog => {
+        dialog.addEventListener('beforetoggle', async (e) => {
+            if (e.newState !== 'open') return;
+            
+            const images = dialog.querySelectorAll('img');
+            await Promise.all(
+                [...images].map(img => img.decode().catch(() => {}))
+            );
         });
     });
 }
