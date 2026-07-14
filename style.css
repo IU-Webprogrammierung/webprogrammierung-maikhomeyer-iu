@@ -694,23 +694,6 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-header {
     }
 }
 
-.site-nav__imprint {
-    position: absolute;
-    bottom: 2rem;
-    font-size: 1.125rem;
-    transition: all .16s ease;
-
-    @media (min-width: 640px) {
-        display: none;
-    }
-
-    @media (hover: hover) {
-        &:hover {
-            color: var(--color-accent);
-        } 
-    }
-}
-
 
 /* HERO SECTION */
 
