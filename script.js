@@ -6,11 +6,9 @@ async function init() {
     initScroll();
     initThemeToggle();
     initReveal();
-    initFrameLoop();
     initThemeImages();
     initModalScrollLock();
     initModalPreload();
-    
 }
 
 async function loadComponent(selector, path) {
@@ -101,7 +99,6 @@ function initThemeToggle() {
     
     toggle.addEventListener('click', toggleTheme);
     
-    // aria-pressed passend zum aktuellen Theme setzen
     updateToggleState(toggle);
 }
 
@@ -137,44 +134,16 @@ function initReveal() {
     otherReveals.forEach(el => observer.observe(el));
 }
 
-function initFrameLoop() {
-    const loops = document.querySelectorAll('.frame-loop');
-    
-    loops.forEach(loop => {
-        const modal = loop.closest('dialog');
-        if (!modal) return;
-        
-        const frames = loop.querySelectorAll('.frame-loop__frame');
-        const images = loop.querySelectorAll('img');
-        
-        frames.forEach(frame => {
-            frame.style.animationPlayState = 'paused';
-        });
-        
-        modal.addEventListener('toggle', async (e) => {
-            if (e.newState !== 'open') return;
-            
-            await Promise.all(
-                [...images].map(img => img.decode().catch(() => {}))
-            );
-            
-            frames.forEach(frame => {
-                frame.style.animationPlayState = 'running';
-            });
-        });
-    });
-}
-
 function initThemeImages() {
     const elements = document.querySelectorAll('[data-src-dark]');
     if (!elements.length) return;
 
-    // Ursprüngliche Werte als Light-Variante merken
     elements.forEach(el => {
         if (el.tagName === 'SOURCE') {
-            el.dataset.srcLight = el.srcset;
+            el.dataset.srcLight = el.srcset || el.src;
         } else if (el.tagName === 'IMG') {
             el.dataset.srcLight = el.src;
+        } else if (el.tagName === 'VIDEO') {
         }
     });
 
@@ -183,16 +152,27 @@ function initThemeImages() {
 
 function updateThemeImages() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    
     const elements = document.querySelectorAll('[data-src-dark]');
-
     elements.forEach(el => {
         const newSrc = isDark ? el.dataset.srcDark : el.dataset.srcLight;
         if (!newSrc) return;
         
         if (el.tagName === 'SOURCE') {
-            el.srcset = newSrc;
+            if (el.parentElement.tagName === 'PICTURE') {
+                el.srcset = newSrc;
+            } else if (el.parentElement.tagName === 'VIDEO') {
+                el.src = newSrc;
+            }
         } else if (el.tagName === 'IMG') {
             el.src = newSrc;
+        }
+    });
+    
+    document.querySelectorAll('video').forEach(video => {
+        if (video.querySelector('source[data-src-dark]')) {
+            video.load();
+            video.play().catch(() => {});
         }
     });
 }
