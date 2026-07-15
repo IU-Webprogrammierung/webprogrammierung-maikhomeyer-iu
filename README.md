@@ -173,6 +173,17 @@ Das native Browser-Verhalten der Textauswahl wurde an das Design-System angepass
 - **Floating Pattern**: ab Tablet schwebt der Header mit Abstand zum Rand
 - **Smooth-Scroll** zu Sektions-Ankerlinks mit `scroll-padding-top`, damit Sektionen nicht hinter dem fixierten Header verschwinden
 
+**Öffnungs-Animation auf Mobile:**
+ 
+Das mobile Menü öffnet sich mit einer sanft gestaffelten Animation, die den Eindruck erweckt, als würde es hinter dem Header hervorkommen:
+ 
+- **Slide-in von oben**: Die gesamte Menü-Fläche fährt aus dem oberen Bildschirmrand nach unten (`translateY(-100%)` → `0`) mit einem `easeOutQuint`-Easing, das Apple-Interfaces prägt
+- **Gestaffelte Items**: Die einzelnen Menüpunkte erscheinen mit feinen Delays von 80ms nacheinander, mit leichtem Slide von oben und Fade-in
+- **Header bleibt statisch**: Beim Öffnen wird der Header vom halbtransparenten Blur auf eine solide Fläche umgestellt – dadurch verschwindet das Menü optisch hinter dem Header, statt sich davor zu schieben
+- **Scroll-Sperre**: Solange das Menü offen ist, wird das Scrollen der Seite via `:has(.site-nav__hamburger[aria-expanded="true"])` blockiert
+ 
+**Stacking-Kniff:** Damit das Menü tatsächlich „hinter" dem Header hervorkommt, obwohl es im DOM ein Kind des Headers ist, bekommt es einen negativen `z-index`. Kinder mit negativem `z-index` werden hinter dem Background ihres Elternteils gerendert – dadurch ist das Menü im Header-Bereich unsichtbar und erscheint erst, wenn es unter dem Header ankommt.
+
 #### Modal-Steuerung
 
 - Native `<dialog>`-Elemente für Projekt-Detailansichten
@@ -279,6 +290,52 @@ Die Umsetzung nutzt Data-Attribute am `<img>`- und `<source>`-Element:
 
 Ein kleines JavaScript-Modul liest beim Seitenaufruf die aktuelle Theme-Einstellung aus, merkt sich die Light-URLs und tauscht bei jedem Theme-Wechsel die Bildquellen aus. Bilder ohne `data-src-dark` bleiben unangetastet – die Funktion greift also selektiv nur dort, wo es tatsächlich Sinn macht.
 
+#### Video-Optimierung
+ 
+Für den VHV-Case wird eine kurze Loop-Animation gezeigt, die ursprünglich aus 8 Einzelbildern bestand (siehe Herausforderungen). Die finale Umsetzung nutzt zwei kompakte Videodateien pro Theme, in zwei Formaten:
+ 
+```html
+<video autoplay muted loop playsinline>
+    <source src="assets/cases/vhv/vhv-loop.webm" 
+            data-src-dark="assets/cases/vhv/vhv-loop-dark.webm"
+            type="video/webm">
+    <source src="assets/cases/vhv/vhv-loop.mp4" 
+            data-src-dark="assets/cases/vhv/vhv-loop-dark.mp4"
+            type="video/mp4">
+</video>
+```
+ 
+**Warum zwei Formate?**
+ 
+- **WebM (VP9-Codec)** bietet die beste Kompression bei sehr guter Qualität und wird von Chrome, Edge, Firefox sowie Safari 17+ unterstützt.
+- **MP4 (H.264-Codec)** ist der universelle Fallback für ältere Safari-Versionen und andere Browser ohne WebM-Support. Fast jedes Gerät kann H.264-Videos abspielen.
+
+**Warum zwei Themes?**
+ 
+Statt eines Videos mit transparentem Hintergrund (Alpha-Kanal) gibt es zwei Varianten mit fest eingebettetem Hintergrund – eine für Lightmode, eine für Darkmode. Alpha-Videos sind ~40 % größer und in Safari nur mit HEVC-Sondercodec möglich. Der Verzicht auf Transparenz spart also Dateigröße und Kompatibilitätsprobleme. Der Wechsel folgt dem gleichen `data-src-dark`-Mechanismus wie bei den Bildern.
+ 
+**Kompression mit `ffmpeg`:**
+ 
+Die Videos wurden mit dem Kommandozeilen-Tool `ffmpeg` aus MP4-Rohdateien (Export aus Figma Motion) reencodiert. Die verwendeten Codec-Einstellungen:
+ 
+```bash
+# WebM mit VP9-Codec (Constant Quality, ohne Audio)
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 35 -b:v 0 -pix_fmt yuv420p -an output.webm
+ 
+# MP4 mit H.264 (Constant Quality, Faststart für schnelles Rendering, ohne Audio)
+ffmpeg -i input.mp4 -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart -an output.mp4
+```
+ 
+Zentrale Parameter:
+ 
+- `-crf` (Constant Rate Factor) steuert die Qualität – niedriger = besser, aber größer. Für kurze Loops mit weichen Übergängen sind 26 (H.264) bzw. 35 (VP9) ein guter Kompromiss zwischen Qualität und Dateigröße.
+- `-preset slow` (nur H.264) lässt den Encoder länger rechnen, spart dafür Dateigröße.
+- `-movflags +faststart` (nur MP4) verschiebt Metadaten an den Dateianfang, sodass das Video sofort abspielen kann, bevor es vollständig heruntergeladen ist.
+- `-an` entfernt eventuelle Audio-Spuren – bei stummen Loops überflüssig.
+**Konkrete Ersparnis bei diesem Projekt:**
+ 
+Die vier Videos (je Theme in WebM und MP4) haben zusammen eine Größe von rund **530 KB**. Zum Vergleich: Die frühere Bild-Sequenz benötigte 8 Bilder × 3 Formate = 24 Dateien pro Case, ohne die theoretisch nötigen Darkmode-Varianten (dann wären es 48 Bilder). Das Video-Setup ist nicht nur kompakter, sondern auch deutlich einfacher zu pflegen.
+
 ## Erkenntnisse und Herausforderungen
 
 Während der Umsetzung sind einige Themen aufgekommen, die zusätzliche Iterationen und Workarounds erforderten. Diese sind bewusst dokumentiert, weil sie den Entwicklungsprozess widerspiegeln und für ähnliche Projekte wertvoll sind.
@@ -326,19 +383,30 @@ Beim Öffnen eines Modals wurde per `overflow: hidden` das Scrollen der Seite bl
 
 **Lektion:** Es lohnt sich, komplizierte Workarounds zu hinterfragen. Eine einzige CSS-Property löste das, wofür vorher Berechnungen, Custom Properties und Media-Query-abhängige Padding-Regeln nötig waren.
 
-### Frame-Loop-Animation: Flackern und Ladezeiten
-
-Ein Case (VHV) zeigt eine animierte Bild-Sequenz, die zwischen 8 Screens durchcyclt. Umgesetzt als reine CSS-Animation mit gestackten `<picture>`-Elementen und `opacity`-Keyframes.
-
-**Herausforderung:** Beim ersten Durchlauf der Animation flackerten die Bilder sichtbar. Verschiedene Faktoren waren beteiligt:
-
+### Frame-Loop-Animation: Vom Bilder-Flackern zum Video
+ 
+Ein Case (VHV) zeigt eine kurze Loop-Animation, die zwischen mehreren Frames durchcyclt. Der Weg zur finalen Lösung ging über zwei Ansätze.
+ 
+**Erster Ansatz – Bild-Sequenz mit CSS-Animation:**
+ 
+Umgesetzt als reine CSS-Animation mit 8 gestackten `<picture>`-Elementen und `opacity`-Keyframes. Beim ersten Durchlauf flackerten die Bilder allerdings sichtbar:
+ 
 - Modal-Bilder wurden per `loading="lazy"` erst beim Öffnen geladen – die Animation startete parallel
 - Selbst mit `fetchpriority="high"` und `decoding="sync"` griff das Loading nicht immer schnell genug
 - Der Browser dekodiert Bilder beim ersten Rendern – 8 auf einmal überforderten die Rendering-Pipeline
-
-**Lösung:** Ein JavaScript-Fix pausiert die Animation initial (`animation-play-state: paused` im CSS) und startet sie erst, wenn das Modal geöffnet wird und alle 8 Bilder per `img.decode()` explizit dekodiert wurden. Die `decode()`-API ist stärker als das `load`-Event, weil sie nicht nur das Herunterladen abwartet, sondern auch das Fertig-Dekodieren.
-
-**Perspektivisch:** Eine solche Frame-Sequenz ist aufwendig in der Pflege (8 Bilder × 3 Formate = 24 Dateien pro Case). Ein Video wäre langfristig eleganter, insbesondere wenn zusätzlich Light-/Darkmode-Varianten benötigt werden – dann wären es 48 Bilder. Die Video-Route wurde für den ersten Anlauf verworfen, weil `<video>`-Elemente in Safari mit transparenten MP4s Probleme machten. Mit dem etablierten Theme-Wechsel-Mechanismus über Data-Attribute lässt sich das Konzept aber grundsätzlich auch auf `<video>`-Quellen übertragen.
+**Zwischenlösung:** Ein JavaScript-Fix pausierte die Animation initial (`animation-play-state: paused` im CSS) und startete sie erst, wenn das Modal geöffnet wurde und alle 8 Bilder per `img.decode()` explizit dekodiert waren. Die `decode()`-API ist stärker als das `load`-Event, weil sie nicht nur das Herunterladen abwartet, sondern auch das Fertig-Dekodieren.
+ 
+**Finale Lösung – Ablösung durch Video:**
+ 
+Auch mit dem Preloading-Fix blieb der Ansatz aufwendig in der Pflege (8 Bilder × 3 Formate = 24 Dateien. Die Bild-Sequenz wurde deshalb durch zwei kleine Videos (Light + Dark) ersetzt – eine deutlich elegantere Lösung:
+ 
+- **Kompakter**: Rund 530 KB für die vier Videodateien (WebM + MP4 pro Theme) statt der aufwendigen Bild-Sammlung
+- **Smoother**: Video-Playback ist von Haus aus GPU-beschleunigt und braucht kein manuelles Preloading
+- **Pflegeleichter**: Zwei Quelldateien statt Dutzenden von Einzelbildern
+- **Theme-fähig**: Wechsel zwischen Light- und Dark-Variante über den etablierten `data-src-dark`-Mechanismus. 
+Der komplette Frame-Loop-Code (HTML, CSS-Keyframes und die `initFrameLoop()`-JavaScript-Funktion) konnte damit entfernt werden. Details zur Videokompression und Format-Wahl siehe Abschnitt „Video-Optimierung".
+ 
+**Lektion:** Manche Umsetzungen lassen sich technisch immer weiter optimieren – aber ein grundlegender Wechsel der Herangehensweise (Video statt Frames) kann alle Folgeprobleme auf einmal auflösen.
 
 ## Git-Workflow
 
