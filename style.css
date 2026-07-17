@@ -233,6 +233,8 @@ button {
     cursor: pointer;
     color: inherit;
     font: inherit;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 img,
