@@ -162,6 +162,21 @@ function toggleTheme() {
     });
 }
 
+function initThemeImages() {
+    const elements = document.querySelectorAll('[data-src-dark]');
+    if (!elements.length) return;
+
+    elements.forEach(el => {
+        if (el.tagName === 'SOURCE') {
+            el.dataset.srcLight = el.srcset || el.src;
+        } else if (el.tagName === 'IMG') {
+            el.dataset.srcLight = el.src;
+        }
+    });
+
+    updateThemeImages();
+}
+
 function updateThemeImages() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     
