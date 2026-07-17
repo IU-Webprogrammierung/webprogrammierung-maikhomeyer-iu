@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('assets/fonts/Satoshi-Regular.ttf') format('truetype');
+    src: url('assets/fonts/Satoshi-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('assets/fonts/Satoshi-Italic.ttf') format('truetype');
+    src: url('assets/fonts/Satoshi-Italic.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('assets/fonts/Satoshi-Medium.ttf') format('truetype');
+    src: url('assets/fonts/Satoshi-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('assets/fonts/Satoshi-Bold.ttf') format('truetype');
+    src: url('assets/fonts/Satoshi-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('assets/fonts/Satoshi-BoldItalic.ttf') format('truetype');
+    src: url('assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -42,7 +42,7 @@
 
 @font-face {
     font-family: 'DM Serif Display';
-    src: url('assets/fonts/DMSerifDisplay-Regular.ttf') format('truetype');
+    src: url('assets/fonts/DMSerifDisplay-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -50,7 +50,7 @@
 
 @font-face {
     font-family: 'DM Serif Display';
-    src: url('assets/fonts/DMSerifDisplay-Italic.ttf') format('truetype');
+    src: url('assets/fonts/DMSerifDisplay-Italic.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
