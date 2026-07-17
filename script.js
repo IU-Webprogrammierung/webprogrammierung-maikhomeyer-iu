@@ -135,20 +135,31 @@ function initReveal() {
     otherReveals.forEach(el => observer.observe(el));
 }
 
-function initThemeImages() {
-    const elements = document.querySelectorAll('[data-src-dark]');
-    if (!elements.length) return;
+function toggleTheme() {
+    const html = document.documentElement;
+    const header = document.querySelector('.site-header');
+    
+    if (header) {
+        header.classList.add('site-header--no-transition');
+    }
+    
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, newTheme);
 
-    elements.forEach(el => {
-        if (el.tagName === 'SOURCE') {
-            el.dataset.srcLight = el.srcset || el.src;
-        } else if (el.tagName === 'IMG') {
-            el.dataset.srcLight = el.src;
-        } else if (el.tagName === 'VIDEO') {
-        }
-    });
-
+    const toggle = document.querySelector('.theme-toggle');
+    if (toggle) updateToggleState(toggle);
+    
     updateThemeImages();
+    
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            if (header) {
+                header.classList.remove('site-header--no-transition');
+            }
+        });
+    });
 }
 
 function updateThemeImages() {

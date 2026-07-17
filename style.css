@@ -340,7 +340,7 @@ svg {
     align-items: center;
     font-size: 1.125rem;
     border-bottom: 1px solid transparent;
-    transition-property: padding-top, padding-bottom, left, right, background,backdrop-filter;
+    transition-property: padding-top, padding-bottom, left, right, background, backdrop-filter;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
 
