@@ -786,15 +786,32 @@
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <video autoplay muted loop playsinline
-                            data-src-dark="assets/cases/vhv/vhv-2-dark.webm">
-                            <source src="assets/cases/vhv/vhv-2.webm"
-                                    data-src-dark="assets/cases/vhv/vhv-2-dark.webm"
-                                    type="video/webm">
-                            <source src="assets/cases/vhv/vhv-2.mp4" 
-                                    data-src-dark="assets/cases/vhv/vhv-2-dark.mp4"
-                                    type="video/mp4">
-                        </video>
+                        <div class="video-player">
+                            <video autoplay muted loop playsinline
+                                data-src-dark="assets/cases/vhv/vhv-2-dark.webm">
+                                <source src="assets/cases/vhv/vhv-2.webm"
+                                        data-src-dark="assets/cases/vhv/vhv-2-dark.webm"
+                                        type="video/webm">
+                                <source src="assets/cases/vhv/vhv-2.mp4" 
+                                        data-src-dark="assets/cases/vhv/vhv-2-dark.mp4"
+                                        type="video/mp4">
+                            </video>
+                            <button type="button" 
+                                    class="video-player__toggle" 
+                                    aria-label="Video pausieren"
+                                    aria-pressed="false">
+                                <span class="video-player__icon video-player__icon--pause" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+                                    <path d="m21.7334 36.67h2.5342c1.1483 0 1.7324-.5796 1.7324-1.7193v-13.9015c0-1.12-.5841-1.6898-1.7324-1.7193h-2.5342c-1.1483 0-1.7324.5698-1.7324 1.7193v13.9015c-.0297 1.1396.5544 1.7193 1.7324 1.7193zm9.9992 0h2.5347c1.1485 0 1.7327-.5796 1.7327-1.7193v-13.9015c0-1.12-.5842-1.7193-1.7327-1.7193h-2.5347c-1.1485 0-1.7327.5698-1.7327 1.7193v13.9015c0 1.1396.5545 1.7193 1.7327 1.7193z"></path>
+                                </svg>
+                                </span>
+                                <span class="video-player__icon video-player__icon--play" aria-hidden="true">
+                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+                                        <path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
                     </figure>
                 </li>
                 <li class="modal__gallery-item modal__gallery-item--half">
@@ -874,14 +891,31 @@
 
                 <li class="modal__gallery-item modal__gallery-item--full">
                     <figure>
-                        <video autoplay muted loop playsinline>
-                            <source src="assets/cases/enercity/enercity-2.webm" 
-                                    data-src-dark="assets/cases/enercity/enercity-2-dark.webm"
-                                    type="video/webm">
-                            <source src="assets/cases/enercity/enercity-2.mp4" 
-                                    data-src-dark="assets/cases/enercity/enercity-2-dark.mp4"
-                                    type="video/mp4">
-                        </video>
+                        <div class="video-player">
+                            <video autoplay muted loop playsinline>
+                                <source src="assets/cases/enercity/enercity-2.webm" 
+                                        data-src-dark="assets/cases/enercity/enercity-2-dark.webm"
+                                        type="video/webm">
+                                <source src="assets/cases/enercity/enercity-2.mp4" 
+                                        data-src-dark="assets/cases/enercity/enercity-2-dark.mp4"
+                                        type="video/mp4">
+                            </video>
+                            <button type="button" 
+                                    class="video-player__toggle" 
+                                    aria-label="Video pausieren"
+                                    aria-pressed="false">
+                                <span class="video-player__icon video-player__icon--pause" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+                                    <path d="m21.7334 36.67h2.5342c1.1483 0 1.7324-.5796 1.7324-1.7193v-13.9015c0-1.12-.5841-1.6898-1.7324-1.7193h-2.5342c-1.1483 0-1.7324.5698-1.7324 1.7193v13.9015c-.0297 1.1396.5544 1.7193 1.7324 1.7193zm9.9992 0h2.5347c1.1485 0 1.7327-.5796 1.7327-1.7193v-13.9015c0-1.12-.5842-1.7193-1.7327-1.7193h-2.5347c-1.1485 0-1.7327.5698-1.7327 1.7193v13.9015c0 1.1396.5545 1.7193 1.7327 1.7193z"></path>
+                                </svg>
+                                </span>
+                                <span class="video-player__icon video-player__icon--play" aria-hidden="true">
+                                    <svg class="icon-control icon-control-play-super svg-icon play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+                                        <path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
                     </figure>
                 </li>
 

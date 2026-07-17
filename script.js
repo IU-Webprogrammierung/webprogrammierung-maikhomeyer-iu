@@ -9,6 +9,7 @@ async function init() {
     initThemeImages();
     initModalScrollLock();
     initModalPreload();
+    initVideoToggles();
 }
 
 async function loadComponent(selector, path) {
@@ -204,6 +205,28 @@ function initModalPreload() {
             await Promise.all(
                 [...images].map(img => img.decode().catch(() => {}))
             );
+        });
+    });
+}
+
+function initVideoToggles() {
+    document.querySelectorAll('.video-player').forEach(player => {
+        const video = player.querySelector('video');
+        const toggle = player.querySelector('.video-player__toggle');
+        if (!video || !toggle) return;
+
+        toggle.addEventListener('click', () => {
+            if (video.paused) {
+                video.play().catch(() => {});
+                player.setAttribute('data-paused', 'false');
+                toggle.setAttribute('aria-label', 'Video pausieren');
+                toggle.setAttribute('aria-pressed', 'false');
+            } else {
+                video.pause();
+                player.setAttribute('data-paused', 'true');
+                toggle.setAttribute('aria-label', 'Video abspielen');
+                toggle.setAttribute('aria-pressed', 'true');
+            }
         });
     });
 }
