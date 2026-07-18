@@ -112,6 +112,11 @@ Vollständiger Theme-Switch mit persistenter Speicherung:
 - Alle Farben werden über die zentralen Custom Properties gesteuert – ein Theme-Wechsel tauscht nur die Variablen-Werte, nicht die einzelnen Regeln
 - Eigene Accent-Farben pro Theme (Rot im Lightmode, Blau im Darkmode) für optimalen Kontrast
 
+
+**Browserleiste im passenden Farbton:**
+ 
+Auf Mobile passt sich zusätzlich die Farbe der Browser-Adressleiste dem aktiven Theme an – im Lightmode weiß, im Darkmode dunkel. Umgesetzt über den `<meta name="theme-color">`-Tag, der beim Theme-Wechsel per JavaScript aktualisiert wird. Statt zweier Meta-Tags mit `media="(prefers-color-scheme: ...)"`-Queries (die nur auf System-Präferenzen reagieren, nicht auf den eigenen Toggle) wird ein einzelner Tag dynamisch neu erzeugt. So bleibt die Browserleiste immer synchron mit dem gewählten Theme – auch wenn User:innen manuell vom System-Standard abweichen.
+
 ### Interaktion und Animation
 
 #### Scroll-Reveal-Animationen
@@ -162,6 +167,17 @@ Das native Browser-Verhalten der Textauswahl wurde an das Design-System angepass
 - Auf Akzentflächen (Footer): invertiert – weißer Background, Akzent-Text
 - Umsetzung mit dem `::selection`-Pseudo-Element, kontextsensitiv gescoped
 
+
+#### Play/Pause-Steuerung für Videos
+ 
+Die Case-Videos laufen automatisch im Loop, können aber jederzeit über einen Toggle-Button pausiert werden. Dieser sitzt unten links im Video und ist bewusst dezent gestaltet – halbtransparent mit Backdrop-Blur, damit er sichtbar bleibt, ohne den Inhalt zu stören.
+ 
+Warum das wichtig ist:
+ 
+- **Barrierefreiheit** (WCAG 2.2.2 „Pause, Stop, Hide"): Nutzer:innen müssen bewegte Inhalte, die länger als fünf Sekunden laufen, anhalten können. Der Auto-Loop wäre ohne Toggle ein potenzielles Hindernis für Menschen mit Aufmerksamkeitsstörungen oder vestibulären Beschwerden.
+- **Semantische Kennzeichnung**: `aria-label` und `aria-pressed` werden beim Klick synchron aktualisiert, damit Screenreader den aktuellen Zustand ankündigen.
+- **Symbolwechsel**: Ein Pause-Icon wechselt beim Klick zum Play-Icon – die Steuerung ist damit auch visuell selbsterklärend.
+
 ### Komponenten
 
 #### Navigation
@@ -207,6 +223,17 @@ Modale öffnen und schließen sich mit einer sanften, mehrstufigen Animation –
 
 Umgesetzt mit der modernen CSS-Kombination aus `@starting-style` und `transition-behavior: allow-discrete`. Damit werden native `<dialog>`-Elemente animierbar, obwohl sie zwischen `display: none` und `display: block` wechseln – ohne JavaScript-Workarounds für den Zustandswechsel.
 
+**Deeplinking über URL-Hash:**
+ 
+Jedes Modal ist zusätzlich über die URL direkt aufrufbar. Öffnet sich ein Modal, wird sein Bezeichner an die URL angehängt. Beim Aufruf einer solchen URL öffnet sich das entsprechende Modal automatisch.
+ 
+Vorteile:
+ 
+- **Teilbarkeit**: Ein Case kann direkt verlinkt werden – praktisch für Bewerbungsunterlagen oder E-Mail-Signaturen
+- **Browser-Historie**: Über die Back-Navigation lässt sich das Modal wieder schließen, ohne die Seite zu verlassen
+- **Aufgeräumte URL**: Nach dem Schließen wird der Hash automatisch entfernt
+Umgesetzt über einen `toggle`-Event-Listener am `<dialog>` und `history.replaceState()`, damit keine überflüssigen History-Einträge entstehen. Beim initialen Seitenaufruf sowie bei `hashchange`-Events wird die URL ausgewertet und das passende Modal geöffnet.
+
 #### Komponenten-System
 
 Header und Footer werden als wiederverwendbare HTML-Fragmente ausgelagert und per JavaScript dynamisch in die Seiten geladen:
@@ -235,6 +262,30 @@ async function init() {
 **Wichtig:** Die Init-Funktionen für Navigation, Scroll-Handling und Theme-Toggle greifen alle auf Elemente **im Header** zu. Sie können daher erst laufen, wenn `loadComponent()` mit `await` abgeschlossen ist. Genauso muss `initReveal()` nach dem Footer-Loading laufen, damit die Reveal-Klassen dort auch beobachtet werden können. Ohne diese Reihenfolge würden die Selektoren ins Leere greifen.
 
 ### Performance
+
+#### Schriftoptimierung
+ 
+Die Schriften (Satoshi und DM Serif Display) waren ursprünglich als TTF-Dateien eingebunden – einem verlustfreien Format, das für Web-Nutzung deutlich zu groß ist. Nach ersten Lighthouse-Auswertungen wurden zwei Schritte durchgeführt:
+ 
+**Umwandlung zu WOFF2:**
+ 
+Alle TTF-Dateien wurden mit dem Kommandozeilen-Tool `woff2_compress` in das moderne WOFF2-Format konvertiert:
+ 
+```bash
+brew install woff2
+for file in *.ttf; do woff2_compress "$file"; done
+```
+ 
+WOFF2 nutzt eine für Web optimierte Kompression und ist in allen modernen Browsern nativ unterstützt. Die konkrete Ersparnis:
+ 
+- Vorher (7 × TTF): rund 1,2 MB
+- Nachher (WOFF2): rund 400 KB
+- Reduktion von etwa **67 %** bei identischer Qualität
+
+
+**Entfernung ungenutzter Fonts:**
+ 
+Beim Durchgehen wurde die Satoshi-Variante „Bold Italic" identifiziert, die im gesamten Layout nirgends verwendet wird. Diese Font-Face-Deklaration und die zugehörige Datei wurden entfernt – ein Font weniger, der geladen werden muss.
 
 #### Bildoptimierung
 
