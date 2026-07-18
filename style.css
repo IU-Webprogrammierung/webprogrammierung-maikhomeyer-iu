@@ -769,6 +769,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-header {
     height: 100%;
     color: var(--color-accent);
     animation: circle-rotate 10s linear infinite;
+    user-select: none;
 
     text {
         font-family: var(--font-body);
