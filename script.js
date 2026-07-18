@@ -10,6 +10,7 @@ async function init() {
     initModalScrollLock();
     initModalPreload();
     initVideoToggles();
+    initModalDeeplinks();
 }
 
 async function loadComponent(selector, path) {
@@ -255,4 +256,41 @@ function initVideoToggles() {
             }
         });
     });
+}
+
+function initModalDeeplinks() {
+    const modals = document.querySelectorAll('.modal');
+    if (!modals.length) return;
+
+    modals.forEach(modal => {
+        modal.addEventListener('toggle', (e) => {
+            if (e.newState === 'open') {
+                history.replaceState(null, '', `#${modal.id}`);
+            } else {
+                if (location.hash === `#${modal.id}`) {
+                    history.replaceState(null, '', location.pathname);
+                }
+            }
+        });
+    });
+
+    function openModalFromHash() {
+        const hash = location.hash.slice(1);
+        if (!hash) return;
+        
+        const targetModal = document.getElementById(hash);
+        if (targetModal && targetModal.classList.contains('modal')) {
+            modals.forEach(m => {
+                if (m !== targetModal && m.open) m.close();
+            });
+            
+            if (!targetModal.open) {
+                targetModal.showModal();
+            }
+        }
+    }
+
+    openModalFromHash();
+
+    window.addEventListener('hashchange', openModalFromHash);
 }
