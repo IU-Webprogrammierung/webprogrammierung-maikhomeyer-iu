@@ -1622,6 +1622,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-header {
     font-weight: 700;
     line-height: 1;
     color: color-mix(in srgb, var(--color-text) 05%, transparent);
+    user-select: none;
 
     @media (min-width: 640px) {
         font-size: 12rem;
