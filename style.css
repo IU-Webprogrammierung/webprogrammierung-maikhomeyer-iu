@@ -227,6 +227,8 @@ button {
     font: inherit;
     user-select: none;
     -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 img,
