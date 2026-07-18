@@ -78,8 +78,8 @@
     --color-background-secondary: rgba(0, 0, 0, 0.04);
     --color-background-inverse: #0f0f0f;
     --color-text: #000;
-    --color-accent: #FF4E5F;
-    --color-accent-surface: #FF4E5F;
+    --color-accent: #FF475B;
+    --color-accent-surface: #FF475B;
     --color-accent-hover: color-mix(in lch, var(--color-accent), transparent 88%);
     --color-border-primary: rgba(0, 0, 0, 0.16);
     --color-border-secondary: rgba(0, 0, 0, 0.08);
