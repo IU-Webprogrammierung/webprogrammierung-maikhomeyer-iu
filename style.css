@@ -395,6 +395,7 @@ body:has(.site-nav__hamburger[aria-expanded="true"]) .site-header {
     font-size: 1.75rem;
     transition: all 0.160s ease;
     z-index: 1;
+    user-select: none;
 
     span {
         color: var(--color-accent);
